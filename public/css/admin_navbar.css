@@ -1,0 +1,98 @@
+.navbar {
+    border-bottom: 0;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+.navbar .avatar {
+    margin-top: -20px;
+    margin-bottom: -15px;
+}
+  
+  .navbar-align {
+    margin-left: auto;
+  }
+  
+  .navbar-bg {
+    background: rgba(255, 255, 255, 0.925);
+  }
+  
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .navbar .avatar {
+      max-height: 47px;
+    }
+  }
+  
+  .nav-item a{
+    padding-bottom: 8px;
+  }
+
+  .main {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    min-height: 100vh;
+    background: whitesmoke;
+    flex-direction: column;
+    overflow: hidden;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .dropdown-menu {
+    top: auto;
+    font-size: 0.9rem!important;
+    
+  }
+
+  .dropdown{
+    border-width: 0;
+    border-bottom-width: 1px;
+    margin-bottom: 0;
+  }  
+
+  .about-user{
+    max-width: 40px!important;
+  }
+
+  #alertsDropdown::after {
+    display: none;
+  }
+
+  .username{
+    font-size: 0.9rem;
+  }
+
+  .navbar .user{
+    margin-right: 5px;
+  }
+   .user .avatar {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    position: relative;
+    right: 8px;
+ 
+  }
+
+  .about-user i{
+    margin-right: 5px;
+  }
+
+  /*hamburger*/
+  .hamburger {
+    position: relative;
+    left: 12px;
+    bottom: 7px;
+    font-size: x-large;
+  }
+  
+  .nav-item .home{
+    margin-right:  20px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.795)!important;
+  }
+
+  .nav-item .home:hover{
+    color: rgb(169, 164, 164)!important;
+  }
+  
+ 

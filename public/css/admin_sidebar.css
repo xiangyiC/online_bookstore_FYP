@@ -5,9 +5,9 @@
   }
 
 .sidebar {
-    min-width: 280px;
-    max-width: 280px;
-    width: 280px;
+    min-width: 260px;
+    max-width: 260px;
+    width: 260px;
     transition: margin-left .35s ease-in-out, left .35s ease-in-out, margin-right .35s ease-in-out, right .35s ease-in-out;
     direction: ltr;
     background: #222E3C;
@@ -110,7 +110,7 @@
     
   }
 
-  .sidebar-submenu-show-show{
+  .sidebar-submenu-show-show-book, .sidebar-submenu-show-show-stationery{
     display: block!important;
     text-decoration: none;
   }
@@ -119,7 +119,7 @@
     font-size: 0.9rem!important;
   }
 
-  .sidebar-submenu-show{
+  .sidebar-submenu-show-book, .sidebar-submenu-show-stationery{
     display: none;
     text-decoration: none;
   }
@@ -139,7 +139,7 @@
     font-size: small;
   }
 
-  .sidebar-dropdown-link-active{
+  .sidebar-dropdown-link-active-book, .sidebar-dropdown-link-active-stationery{
     color: #f5f3f2!important;
     background: #26354a!important;
     border-left-color: #f5f3f2!important;
@@ -147,4 +147,9 @@
 
   .sidebar .sidebar-item i{
     padding-right: 4px;
+  }
+
+  /*Hide sidebar when clicking the hamburger*/
+  .sidebar-hide{
+    display: none;
   }
