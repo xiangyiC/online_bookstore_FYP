@@ -15,17 +15,6 @@
         </head>
         <script>
 
-            function openNav() {
-                document.querySelector('.sidebar').style.display = 'block';
-                document.querySelector('.hamburger').style.display = 'none';
-            }
-
-            function closeNav() {
-                var sidebar = document.querySelector('.sidebar');
-                sidebar.style.display = 'none';	
-                document.querySelector('.hamburger').style.display = 'block';
-            }
-
             $(document).ready(function(){
                 $(".sidebar-dropdown-link-book").click(function(){
                     $(".sidebar-submenu-show-book").toggleClass("sidebar-submenu-show-show-book");
