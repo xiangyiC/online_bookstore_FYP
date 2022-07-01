@@ -1,0 +1,72 @@
+.stationery-category-add .row{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    margin: 85px 20px;
+    background-color: white;
+}
+
+.stationery-category-add-img{
+    object-fit: cover;
+    position: relative;
+    margin-left: -11px;
+}
+
+.stationery-category-add-content{
+    padding-top: 50px;
+    display: flex;
+   justify-content: center;
+   margin-left: -11px;
+   
+}
+
+.stationery-category-add-content-inputbox{
+    border: none!important;
+    border-bottom: 2px solid #112222!important;
+    display: block;
+    outline: none;
+    width: 300px;
+}
+
+.stationery-category-add-content-inputbox::placeholder{
+   font-size: smaller;
+   color: rgba(128, 128, 128, 0.763);
+}
+
+.stationery-category-add-content-inputbox:focus{
+    border: none!important;
+    border-bottom: 2px solid rgb(8, 115, 202)!important;
+    display: block;
+    outline: none;
+    width: 300px;
+
+}
+
+.stationery-category-add-content-title{
+    font-size: 1rem;
+    padding-bottom: 5px;
+    color: black;
+}
+
+.stationery-category-add-title{
+    text-align: center;
+    padding-bottom: 18px;
+}
+
+.stationery-category-add-form-row{
+    padding-bottom: 18px;
+}
+
+.stationery-category-add-button{
+    display: flex;
+    justify-content: center;
+    padding-top: 8px;
+    
+}
+
+.stationery-category-add-button button{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.stationery-category-add-button button:hover{
+    background-color: rgb(128, 128, 128);
+}

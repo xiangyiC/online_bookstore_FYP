@@ -28,3 +28,11 @@ Route::get('/admin', function () {
 Route::get('/admin_dashboard', function () {
     return view('admin_dashboard');
 });
+
+Route::get('/admin_add_book_category', function () {
+    return view('admin_add_book_category');
+});
+
+Route::get('/admin_add_stationery_category', function () {
+    return view('admin_add_stationery_category');
+});

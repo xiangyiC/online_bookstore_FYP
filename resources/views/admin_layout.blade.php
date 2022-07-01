@@ -51,35 +51,29 @@
 
                             <li class="sidebar-item">
                                 <a class="sidebar-link" href="index.html">
-                                <i class="bi bi-card-heading"></i> <span class="align-middle">Dashboard</span>
+                                <i class="bi bi-columns"></i><span class="align-middle"> Dashboard</span>
                                 </a>
                             </li>
 
                             <li class="sidebar-item sidebar-dropdown">
                                 <a class="sidebar-link sidebar-dropdown-link-book">
-                                <i class="bi bi-tag"></i></i> <span class="align-middle">Book</span>
+                                <i class="bi bi-book"></i> <span class="align-middle">Book</span>
                                     <i class="bi bi-caret-down-fill book-arrow-down"></i>
                                 </a>
                                 
                                 <div class="sidebar-submenu">
                                     <ul class="sidebar-submenu-show-book">
                                         <li>
-                                            <a href="#" class="sidebar-link"><i class="bi bi-plus-circle"></i> Add Category</a>
+                                            <a href="#" class="sidebar-link"><i class="bi bi-plus-circle"></i> New Category</a>
                                         </li>
                                         <li>
-                                            <a href="#" class="sidebar-link"><i class="bi bi-x-circle"></i> Delete Category</a>
+                                            <a href="#" class="sidebar-link"><i class="bi bi-list-ul"></i> Category List</a>
                                         </li>
                                         <li>
-                                            <a href="#" class="sidebar-link"><i class="bi bi-pencil"></i> Edit Category</a>
+                                            <a href="#" class="sidebar-link"><i class="bi bi-plus-square"></i> New Book</a>
                                         </li>
                                         <li>
-                                            <a href="#" class="sidebar-link"><i class="bi bi-plus-square"></i> Add Book</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="sidebar-link"><i class="bi bi-x-square"></i> Delete Book</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="sidebar-link"><i class="bi bi-pencil"></i> Edit Book</a>
+                                            <a href="#" class="sidebar-link"><i class="bi bi-list-ol"></i> Book List</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -87,29 +81,23 @@
 
                             <li class="sidebar-item sidebar-dropdown">
                                 <a class="sidebar-link sidebar-dropdown-link-stationery">
-                                <i class="bi bi-tag"></i></i> <span class="align-middle">Stationery</span>
+                                <i class="bi bi-brush"></i><span class="align-middle"> Stationery</span>
                                     <i class="bi bi-caret-down-fill stationery-arrow-down"></i>
                                 </a>
                                 
                                 <div class="sidebar-submenu">
                                     <ul class="sidebar-submenu-show-stationery">
                                         <li>
-                                            <a href="#" class="sidebar-link"><i class="bi bi-plus-square"></i> Add Category</a>
+                                            <a href="#" class="sidebar-link"><i class="bi bi-plus-circle"></i> New Category</a>
                                         </li>
                                         <li>
-                                            <a href="#" class="sidebar-link"><i class="bi bi-x-square"></i> Delete Category</a>
+                                            <a href="#" class="sidebar-link"><i class="bi bi-list-ul"></i> Category List</a>
                                         </li>
                                         <li>
-                                            <a href="#" class="sidebar-link"><i class="bi bi-pencil"></i> Edit Category</a>
+                                            <a href="#" class="sidebar-link"><i class="bi bi-plus-square"></i> New Stationery</a>
                                         </li>
                                         <li>
-                                            <a href="#" class="sidebar-link"><i class="bi bi-pencil"></i> Add Stationery</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="sidebar-link"><i class="bi bi-pencil"></i> Delete Stationery</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="sidebar-link"><i class="bi bi-pencil"></i> Edit Stationery</a>
+                                            <a href="#" class="sidebar-link"><i class="bi bi-list-ol"></i> Stationery List</a>
                                         </li>
                                     </ul>
                                 </div>

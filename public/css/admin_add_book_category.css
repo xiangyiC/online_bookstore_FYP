@@ -1,0 +1,72 @@
+.book-category-add .row{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    margin: 85px 20px;
+    background-color: white;
+}
+
+.book-category-add-img{
+    object-fit: cover;
+    position: relative;
+    margin-left: -11px;
+}
+
+.book-category-add-content{
+    padding-top: 50px;
+    display: flex;
+   justify-content: center;
+   margin-left: -11px;
+   
+}
+
+.book-category-add-content-inputbox{
+    border: none!important;
+    border-bottom: 2px solid #112222!important;
+    display: block;
+    outline: none;
+    width: 300px;
+}
+
+.book-category-add-content-inputbox::placeholder{
+   font-size: smaller;
+   color: rgba(128, 128, 128, 0.763);
+}
+
+.book-category-add-content-inputbox:focus{
+    border: none!important;
+    border-bottom: 2px solid rgb(8, 115, 202)!important;
+    display: block;
+    outline: none;
+    width: 300px;
+
+}
+
+.book-category-add-content-title{
+    font-size: 1rem;
+    padding-bottom: 5px;
+    color: black;
+}
+
+.book-category-add-title{
+    text-align: center;
+    padding-bottom: 18px;
+}
+
+.book-category-add-form-row{
+    padding-bottom: 18px;
+}
+
+.book-category-add-button{
+    display: flex;
+    justify-content: center;
+    padding-top: 8px;
+    
+}
+
+.book-category-add-button button{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.book-category-add-button button:hover{
+    background-color: rgb(128, 128, 128);
+}
