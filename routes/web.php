@@ -36,3 +36,11 @@ Route::get('/admin_add_book_category', function () {
 Route::get('/admin_add_stationery_category', function () {
     return view('admin_add_stationery_category');
 });
+
+Route::get('/admin_add_book', function () {
+    return view('admin_add_book');
+});
+
+Route::get('/admin_add_stationery_category', function () {
+    return view('admin_add_stationery_category');
+});

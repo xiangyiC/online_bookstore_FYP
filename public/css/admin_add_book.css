@@ -1,0 +1,87 @@
+.book-add .row{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    margin: 50px auto;
+    background-color: white;
+    width: fit-content;
+}
+
+.book-add-content-inputbox{
+    border: none!important;
+    border-bottom: 2px solid #112222!important;
+    display: block;
+    outline: none;
+    width: 300px;
+}
+
+.book-add-content-inputbox::placeholder{
+   font-size: smaller;
+   color: rgba(128, 128, 128, 0.763);
+}
+
+.book-add-content-inputbox:focus{
+    border: none!important;
+    border-bottom: 2px solid rgb(8, 115, 202)!important;
+    display: block;
+    outline: none;
+    width: 300px;
+
+}
+
+.book-add-content-title{
+    font-size: 1rem;
+    padding-bottom: 2px;
+    color: black;
+}
+
+.book-add-title{
+    padding-bottom: 15px;
+    margin-top: 25px;
+    position: relative;
+    left: 155px;
+}
+
+.book-add-form-row{
+    padding-bottom: 10px;
+    padding-left: 50px;
+    padding-right: 20px;
+    position: relative;
+    left: 10px;
+}
+
+.book-add-form-row-textarea{
+    padding-bottom: 10px;
+    padding-left: 38px;
+    position: relative;
+    left: 20px;
+}
+
+.book-add-form-row-textarea textarea{
+    width: 300px;
+}
+
+.book-add-form-row select{
+    display: block;
+    width: 100px;
+}
+
+.book-add-button{
+    display: flex;
+    justify-content: center;
+    padding-top: 8px;
+    
+}
+
+.book-add-button button{
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+    left: 110px;
+}
+
+.book-add-button button:hover{
+    background-color: rgb(128, 128, 128);
+}
+
+.book-image{
+    border: none!important;
+}

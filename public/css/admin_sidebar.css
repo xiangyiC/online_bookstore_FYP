@@ -19,6 +19,7 @@
     height: 100vh;
     flex-direction: column;
     background: #222E3C;
+    position: fixed;
   }
   
   .sidebar-nav {
