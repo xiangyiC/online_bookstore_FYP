@@ -60,8 +60,8 @@
 }
 
 .book-add-form-row select{
-    display: block;
-    width: 100px;
+    width: 100px!important;
+    margin-left: 20px;
 }
 
 .book-add-button{
@@ -84,4 +84,17 @@
 
 .book-image{
     border: none!important;
+}
+
+.selectbox{
+    display: flex;
+    flex-direction: row;
+}
+
+.selectbox label{
+    white-space: nowrap;
+}
+
+.book-format{
+    margin-left: 55px!important;
 }

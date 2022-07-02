@@ -37,13 +37,6 @@
                 </div>
 
                 <div class="book-add-form-row">
-                    <label for="category-ID" class="book-add-content-title">Category ID</label>
-                    <select name="category-ID" id="category-ID" class="">
-                        <option>1</option>
-                    </select>
-                </div>
-
-                <div class="book-add-form-row">
                     <label for="book-author" class="book-add-content-title">Author</label>
                     <input type="text" class="book-add-content-inputbox" id="book-author" name="book-author" placeholder="Eg: De Saint-Exupery, Antoine">
                 </div>
@@ -53,12 +46,19 @@
                     <input type="number" class="book-add-content-inputbox" id="book-pages" name="book-pages" placeholder="Eg: 300" min=1>
                 </div>
 
-                <div class="book-add-form-row">
+                <div class="book-add-form-row selectbox">
                     <label for="book-format" class="book-add-content-title">Format</label>
-                    <select name="book-format" id="book-format" class="">
+                    <select name="book-format" id="book-format" class="book-format">
                         <option>Paperback</option>
                         <option>Hardcover</option>
                         <option>Boxset</option>
+                    </select>
+                </div>
+
+                <div class="book-add-form-row selectbox">
+                    <label for="category-ID" class="book-add-content-title">Category ID</label>
+                    <select name="category-ID" id="category-ID" class="">
+                        <option>1</option>
                     </select>
                 </div>
 
