@@ -44,3 +44,7 @@ Route::get('/admin_add_book', function () {
 Route::get('/admin_add_stationery_category', function () {
     return view('admin_add_stationery_category');
 });
+
+Route::get('/admin_add_stationery', function () {
+    return view('admin_add_stationery');
+});
