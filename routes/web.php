@@ -27,24 +27,36 @@ Route::get('/admin', function () {
 
 Route::get('/admin_dashboard', function () {
     return view('admin_dashboard');
-});
+})->name('admin_dashboard');
 
 Route::get('/admin_add_book_category', function () {
     return view('admin_add_book_category');
-});
+})->name('admin_add_book_category');
 
 Route::get('/admin_add_stationery_category', function () {
     return view('admin_add_stationery_category');
-});
+})->name('admin_add_stationery_category');
 
 Route::get('/admin_add_book', function () {
     return view('admin_add_book');
-});
-
-Route::get('/admin_add_stationery_category', function () {
-    return view('admin_add_stationery_category');
-});
+})->name('admin_add_book');
 
 Route::get('/admin_add_stationery', function () {
     return view('admin_add_stationery');
-});
+})->name('admin_add_stationery');
+
+Route::get('/admin_book_category_list', function () {
+    return view('admin_book_category_list');
+})->name('admin_book_category_list');
+
+Route::get('/admin_stationery_category_list', function () {
+    return view('admin_stationery_category_list');
+})->name('admin_stationery_category_list');
+
+Route::get('/admin_book_list', function () {
+    return view('admin_book_list');
+})->name('admin_book_list');
+
+Route::get('/admin_stationery_list', function () {
+    return view('admin_stationery_list');
+})->name('admin_stationery_list');

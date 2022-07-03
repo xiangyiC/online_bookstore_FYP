@@ -3,6 +3,13 @@
 </head>
 @extends('admin_layout')
 @section('content')
+<script>
+    $(".dashboard").toggleClass("sidebar-dropdown-link-active-book");
+    $(".sidebar-link").click(function(){
+        $(".dashboard").removeClass("sidebar-dropdown-link-active-book");
+    });
+</script>
+
 <div class="container-fluid sales-information">
     <div class="row">
         <div class="col-lg-2 col-md-4 col-sm-6 sales-information-content">

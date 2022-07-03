@@ -3,6 +3,13 @@
 </head>
 @extends('admin_layout')
 @section('content')
+<script>
+    $(".droplink-new-book-category").toggleClass("sidebar-dropdown-sublink-active");
+    $(".sidebar-link").click(function(){
+        $(".droplink-new-book-category").removeClass("sidebar-dropdown-sublink-active");
+    });
+</script>
+
 <div class="container-fluid book-category-add">
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-12 book-category-add-content-img">

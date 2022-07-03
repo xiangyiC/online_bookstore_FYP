@@ -146,6 +146,10 @@
     border-left-color: #f5f3f2!important;
   }
 
+  .sidebar-dropdown-sublink-active{
+    color: #f5f3f2!important;
+  }
+
   .sidebar .sidebar-item i{
     padding-right: 4px;
   }

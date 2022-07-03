@@ -16,25 +16,54 @@
         <script>
 
             $(document).ready(function(){
+                
+                var book_open = localStorage.getItem('bookDropdownWasOpen')
+                var stationery_open = localStorage.getItem('stationeryDropdownWasOpen')
+
+                $(".dashboard").click(function(){
+                    localStorage.removeItem("bookDropdownWasOpen");   
+                    localStorage.removeItem("stationeryDropdownWasOpen");
+                });
+
+                $(".order").click(function(){
+                    localStorage.removeItem("bookDropdownWasOpen");   
+                    localStorage.removeItem("stationeryDropdownWasOpen");
+                });
+
+                $(".customer").click(function(){
+                    localStorage.removeItem("bookDropdownWasOpen");   
+                    localStorage.removeItem("stationeryDropdownWasOpen");
+                });
+
+                if(book_open){
+                    $(".sidebar-submenu-show-book").toggleClass("sidebar-submenu-show-show-book");
+                    $(".sidebar-dropdown-link-book").toggleClass("sidebar-dropdown-link-active-book");
+                    $('.sidebar-submenu-show-show-stationery').removeClass('sidebar-submenu-show-show-stationery');
+                    $('.sidebar-dropdown-link-active-stationery').removeClass('sidebar-dropdown-link-active-stationery');
+                    
+                }if(stationery_open){
+                    $(".sidebar-submenu-show-stationery").toggleClass("sidebar-submenu-show-show-stationery");
+                    $(".sidebar-dropdown-link-stationery").toggleClass("sidebar-dropdown-link-active-stationery");
+                    $('.sidebar-submenu-show-show-book').removeClass('sidebar-submenu-show-show-book');
+                    $('.sidebar-dropdown-link-active-book').removeClass('sidebar-dropdown-link-active-book');
+                }
+                
                 $(".sidebar-dropdown-link-book").click(function(){
                     $(".sidebar-submenu-show-book").toggleClass("sidebar-submenu-show-show-book");
                     $(".sidebar-dropdown-link-book").toggleClass("sidebar-dropdown-link-active-book");
                     $('.sidebar-submenu-show-show-stationery').removeClass('sidebar-submenu-show-show-stationery');
                     $('.sidebar-dropdown-link-active-stationery').removeClass('sidebar-dropdown-link-active-stationery');
+                    localStorage.setItem('bookDropdownWasOpen', 'true');
+                    localStorage.removeItem("stationeryDropdownWasOpen");
                 });
                 $(".sidebar-dropdown-link-stationery").click(function(){
                     $(".sidebar-submenu-show-stationery").toggleClass("sidebar-submenu-show-show-stationery");
                     $(".sidebar-dropdown-link-stationery").toggleClass("sidebar-dropdown-link-active-stationery");
                     $('.sidebar-submenu-show-show-book').removeClass('sidebar-submenu-show-show-book');
                     $('.sidebar-dropdown-link-active-book').removeClass('sidebar-dropdown-link-active-book');
-                });
-
-                $(".sidebar-show").click(function(){
-                    $(".sidebar").toggleClass("sidebar-hide");
-                    
+                    localStorage.setItem('stationeryDropdownWasOpen', 'true');
                 });
             });
-
         </script>
         <body>
             <div class="wrapper">
@@ -50,7 +79,7 @@
                             </li>
 
                             <li class="sidebar-item">
-                                <a class="sidebar-link" href="index.html">
+                                <a class="sidebar-link dashboard" href="{{ route('admin_dashboard') }}">
                                 <i class="bi bi-columns"></i><span class="align-middle"> Dashboard</span>
                                 </a>
                             </li>
@@ -64,16 +93,16 @@
                                 <div class="sidebar-submenu">
                                     <ul class="sidebar-submenu-show-book">
                                         <li>
-                                            <a href="#" class="sidebar-link"><i class="bi bi-plus-circle"></i> New Category</a>
+                                            <a href="{{ route('admin_add_book_category') }}" class="sidebar-link droplink-new-book-category"><i class="bi bi-plus-circle"></i> New Category</a>
                                         </li>
                                         <li>
-                                            <a href="#" class="sidebar-link"><i class="bi bi-list-ul"></i> Category List</a>
+                                            <a href="{{ route('admin_book_category_list') }}" class="sidebar-link droplink-book-category-list"><i class="bi bi-list-ul"></i> Category List</a>
                                         </li>
                                         <li>
-                                            <a href="#" class="sidebar-link"><i class="bi bi-plus-square"></i> New Book</a>
+                                            <a href="{{ route('admin_add_book') }}" class="sidebar-link droplink-new-book"><i class="bi bi-plus-square"></i> New Book</a>
                                         </li>
                                         <li>
-                                            <a href="#" class="sidebar-link"><i class="bi bi-list-ol"></i> Book List</a>
+                                            <a href="{{ route('admin_book_list') }}" class="sidebar-link droplink-book-list"><i class="bi bi-list-ol"></i> Book List</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -88,29 +117,29 @@
                                 <div class="sidebar-submenu">
                                     <ul class="sidebar-submenu-show-stationery">
                                         <li>
-                                            <a href="#" class="sidebar-link"><i class="bi bi-plus-circle"></i> New Category</a>
+                                            <a href="{{ route('admin_add_stationery_category') }}" class="sidebar-link droplink-new-stationery-category"><i class="bi bi-plus-circle"></i> New Category</a>
                                         </li>
                                         <li>
-                                            <a href="#" class="sidebar-link"><i class="bi bi-list-ul"></i> Category List</a>
+                                            <a href="{{ route('admin_stationery_category_list') }}" class="sidebar-link droplink-stationery-category-list"><i class="bi bi-list-ul"></i> Category List</a>
                                         </li>
                                         <li>
-                                            <a href="#" class="sidebar-link"><i class="bi bi-plus-square"></i> New Stationery</a>
+                                            <a href="{{ route('admin_add_stationery') }}" class="sidebar-link droplink-new-stationery"><i class="bi bi-plus-square"></i> New Stationery</a>
                                         </li>
                                         <li>
-                                            <a href="#" class="sidebar-link"><i class="bi bi-list-ol"></i> Stationery List</a>
+                                            <a href="{{ route('admin_stationery_list') }}" class="sidebar-link droplink-stationery-list"><i class="bi bi-list-ol"></i> Stationery List</a>
                                         </li>
                                     </ul>
                                 </div>
                             </li>
 
                             <li class="sidebar-item">
-                                <a class="sidebar-link" href="index.html">
+                                <a class="sidebar-link order" href="index.html">
                                 <i class="bi bi-card-heading"></i> <span class="align-middle">Order</span>
                                 </a>
                             </li>
 
                             <li class="sidebar-item">
-                                <a class="sidebar-link" href="index.html">
+                                <a class="sidebar-link customer" href="index.html">
                                 <i class="bi bi-card-heading"></i> <span class="align-middle">Customer</span>
                                 </a>
                             </li>    
