@@ -5,7 +5,6 @@
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
             <title>Destiny Bookstore</title>
             <link href="{{ url('css/admin_sidebar.css') }}" rel="stylesheet" type="text/css">
-            <link href="{{ url('css/hamburger.css') }}" rel="stylesheet" type="text/css">
             <link href="{{ url('css/admin_navbar.css') }}" rel="stylesheet" type="text/css">
             <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
@@ -14,7 +13,6 @@
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         </head>
         <script>
-
             $(document).ready(function(){
                 
                 var book_open = localStorage.getItem('bookDropdownWasOpen')
@@ -63,8 +61,14 @@
                     $('.sidebar-dropdown-link-active-book').removeClass('sidebar-dropdown-link-active-book');
                     localStorage.setItem('stationeryDropdownWasOpen', 'true');
                 });
+
+                $(".sidebar-show").click(function(){
+                    $(".sidebar").toggleClass("sidebar-hide");   
+                });
+
             });
         </script>
+        
         <body>
             <div class="wrapper">
                 <nav id="sidebar" class="sidebar">
@@ -181,11 +185,22 @@
                             </ul>
                         </div>
                     </nav>
+                    @if(Session::has('success'))
+                    <div class="alert alert-success" role="alert">
+                        {{Session::get('success')}}
+
+                    </div>
+                    @elseif(Session::has('error'))
+                    <div class="alert alert-danger" role="alert">
+                        {{Session::get('error')}}
+
+                    </div>
+                    @endif
+                    
                     @yield('content')
                 </div>
-
+               
 
             </div>    
         </body>
-
     <html>

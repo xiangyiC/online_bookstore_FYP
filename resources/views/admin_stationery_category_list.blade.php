@@ -16,30 +16,29 @@
         <thead>
             <tr>
                 <th scope="col">#</th>
+                <th scope="col">Category ID</th>
                 <th scope="col">Category Name</th>
                 <th scope="col">Category Type</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
+        <?php
+            $i = 1;
+        ?>
         <tbody>
+            @foreach($categories as $category)
             <tr>
-                <th scope="row">1</th>
-                <td>Art & Craft</td>
-                <td>Colour Material</td>
-                <td><button><i class="bi bi-pencil-square"></button></i>&ensp;<button><i class="bi bi-x-square"></i></button></td>
+                
+                <th scope="row"><?= $i ?></th>
+                <td>{{$category->category_ID}}</td>
+                <td>{{$category->category_name}}</td>
+                <td>{{$category->category_type}}</td>
+                <td><a href="{{ route('admin_edit_stationery_category',['category_ID'=>$category->category_ID])}}"><button><i class="bi bi-pencil-square"></i></button></a>&ensp;<a href="{{ route('admin_delete_stationery_category',['category_ID'=>$category->category_ID])}}" onClick="return confirm('Are you confirm to delete?')"><button><i class="bi bi-x-square"></i></button></a></td>
+                <?php
+                    $i++;
+                ?>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Art & Craft</td>
-                <td>Colour Material</td>
-                <td><button><i class="bi bi-pencil-square"></button></i>&ensp;<button><i class="bi bi-x-square"></i></button></td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Art & Craft</td>
-                <td>Colour Material</td>
-                <td><button><i class="bi bi-pencil-square"></button></i>&ensp;<button><i class="bi bi-x-square"></i></button></td>
-            </tr>
+            @endforeach
         </tbody>
     </table>
 </div>
