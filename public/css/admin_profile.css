@@ -1,0 +1,84 @@
+.profile{
+    margin: 50px 60px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-color: white;
+    width: 850px!important;
+}
+
+.profile img{
+    object-fit: cover;
+    width: 200px;
+    height: 200px;
+    padding-top: 20px;
+    padding-left: 10px;
+}
+
+.about-me p{
+    font-size: 0.8rem;
+    width: fit-content;
+    word-spacing: 0.2em;
+    padding-left: 10px;
+}
+
+.about-me-title, .contact-title, .address-title{
+    padding-top: 15px;
+    margin-bottom: -13px;
+    font-size: 0.9rem;
+    color: black;
+}
+
+.about-me-title{
+    padding-left: 10px;
+}
+
+.about-me hr{
+    margin-left: 10px;
+}
+
+.about-me{
+    padding: 10px;
+    
+}
+
+.user-information{
+    padding: 30px 60px;
+}
+
+.role{
+    font-size: 0.8rem;
+    color: rgb(23, 65, 250);
+}
+
+.birthday{
+    font-size: 0.8rem;
+}
+
+.contact p{
+    font-size: 0.8rem;
+}
+
+.address p{
+    font-size: 0.8rem;
+}
+
+.contact{
+    padding-left: 20px;
+}
+
+.address{
+    padding-left: 20px;
+}
+
+.basic-information{
+    padding-left: 20px;
+}
+
+.edit-profile{
+    float: right;
+    color: black;
+    font-size: small;
+}
+
+.bold{
+    font-weight: 500;
+}

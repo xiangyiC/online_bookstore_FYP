@@ -137,7 +137,7 @@
                             </li>
 
                             <li class="sidebar-item">
-                                <a class="sidebar-link order" href="index.html">
+                                <a class="sidebar-link order" href="{{ route('admin_order_list') }}">
                                 <i class="bi bi-card-heading"></i> <span class="align-middle">Order</span>
                                 </a>
                             </li>

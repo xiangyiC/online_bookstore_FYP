@@ -21,3 +21,11 @@
     text-align: center;
     margin-bottom: 25px;
 }
+
+.description{
+    width: max-content!important;
+}
+
+.ISBN{
+    word-wrap: break-word;
+}

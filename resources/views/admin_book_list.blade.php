@@ -16,48 +16,46 @@
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Title</th>
                 <th scope="col">ISBN</th>
+                <th scope="col">Title</th>
                 <th scope="col">Price</th>
                 <th scope="col">Quantity</th>
+                <th scope="col">Image</th>
                 <th scope="col">Author</th>
                 <th scope="col">Publisher</th>
                 <th scope="col">Pages</th>
+                <th scope="col">Language</th>
                 <th scope="col">Format</th>
-                <th scope="col">Category</th>
-                <th scope="col">Image</th>
                 <th scope="col">Description</th>
+                <th scope="col">Category</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
+        <?php
+            $i = 1;
+        ?>
         <tbody>
+            @foreach($books as $book)
             <tr>
-                <th scope="row">1</th>
-                <td>The little Prince</td>
-                <td>9780141185620</td>
-                <td>RM39.90</td>
-                <td>612</td>
-                <td>De Saint-Exupery, Antoine</td>
-                <td>Penguin Books</td>
-                <td>300</td>
-                <td>Paperback</td>
-                <td>The little Prince</td>
-                <td>The little Prince</td>
-                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</td>
-                <td><button><i class="bi bi-pencil-square"></button></i><button><i class="bi bi-x-square"></i></button></td>
+                <th scope="row"><?= $i ?></th>
+                <td class="ISBN">{{$book->book_ISBN}}</td>
+                <td>{{$book->book_title}}</td>
+                <td>{{$book->book_price}}</td>
+                <td>{{$book->book_quantity}}</td>
+                <td><img src="{{asset('images/')}}/{{$book->book_image}}" width="80" class="img-fluid"></td>
+                <td>{{$book->book_author}}</td>
+                <td>{{$book->book_publisher}}</td>
+                <td>{{$book->book_pages}}</td>
+                <td>{{$book->book_language}}</td>
+                <td>{{$book->book_format}}</td>
+                <td class="description">{{$book->book_description}}</td>
+                <td>{{$book->categoryName}}-{{$book->categoryType}}</td>
+                <td><a href="{{ route('admin_edit_book',['book_ISBN'=>$book->book_ISBN])}}"><button><i class="bi bi-pencil-square"></i></button></a>&ensp;<a href="{{ route('admin_delete_book',['book_ISBN'=>$book->book_ISBN])}}" onClick="return confirm('Are you confirm to delete?')"><button><i class="bi bi-x-square"></i></button></a></td>
+                <?php
+                    $i++;
+                ?>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Fiction</td>
-                <td>Horror</td>
-                <td><button><i class="bi bi-pencil-square"></button></i>&ensp;<button><i class="bi bi-x-square"></i></button></td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Fiction</td>
-                <td>Horror</td>
-                <td><button><i class="bi bi-pencil-square"></button></i>&ensp;<button><i class="bi bi-x-square"></i></button></td>
-            </tr>
+            @endforeach
         </tbody>
     </table>
 </div>

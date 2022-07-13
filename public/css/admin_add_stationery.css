@@ -10,7 +10,7 @@
     border-bottom: 2px solid #112222!important;
     display: block;
     outline: none;
-    width: 300px;
+    width: 350px;
 }
 
 .stationery-add-content-inputbox::placeholder{
@@ -23,7 +23,7 @@
     border-bottom: 2px solid rgb(8, 115, 202)!important;
     display: block;
     outline: none;
-    width: 300px;
+    width: 350px;
 
 }
 
@@ -37,31 +37,28 @@
     padding-bottom: 15px;
     margin-top: 25px;
     position: relative;
-    left: 125px;
+    left: 120px;
 }
 
 .stationery-add-form-row{
     padding-bottom: 10px;
-    padding-left: 50px;
-    padding-right: 20px;
-    position: relative;
-    left: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+   
 }
 
 .stationery-add-form-row-textarea{
     padding-bottom: 10px;
-    padding-left: 38px;
-    position: relative;
-    left: 20px;
+    padding-left: 30px;
 }
 
 .stationery-add-form-row-textarea textarea{
-    width: 300px;
+    width: 350px;
 }
 
 .stationery-add-form-row select{
-    width: 100px!important;
-    margin-left: 20px;
+    
+    margin-left: 5px;
 }
 
 .stationery-add-button{

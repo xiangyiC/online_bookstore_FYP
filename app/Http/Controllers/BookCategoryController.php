@@ -28,7 +28,7 @@ class BookCategoryController extends Controller
             Session::flash('error',"Book category already exists!");
             // user already existed and was pulled from database.
         }
-        return view('admin_add_book_category');
+        return redirect()->route('admin_book_category_list');
     }
 
     public function view_book_category(){

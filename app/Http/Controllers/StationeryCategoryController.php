@@ -28,7 +28,7 @@ class StationeryCategoryController extends Controller
             Session::flash('error',"Stationery category already exists!");
             // user already existed and was pulled from database.
         }
-        return view('admin_add_stationery_category');
+        return redirect()->route('admin_stationery_category_list');
     }
 
     public function view_stationery_category(){
