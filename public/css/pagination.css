@@ -1,0 +1,101 @@
+.pagination {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+  }
+  
+  .pagination ul {
+    list-style-type: none;
+  }
+  
+  .pagination .items-list {
+    margin: 2rem;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 3rem;
+    justify-content: center;
+    align-content: center;
+  
+    @media only screen and (max-width: 600px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .pagination .item {
+    width: 10rem;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .pagination span {
+    background-color: #ffffff;
+    box-shadow: 0 0.8rem 2rem rgba(#5a6181, 0.05);
+    border-radius: 0.6rem;
+    padding: 1rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+    margin: 2rem;
+    border-radius: 0.6rem;
+    background: #ffffff;
+    box-shadow: 0 0.8rem 2rem rgba(#5a6181, 0.05);
+  
+  }
+   .page__numbers,
+   .page__btn,
+   .page__dots {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0.8rem;
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+  
+    .page__dots {
+      width: 2.6rem;
+      height: 2.6rem;
+      color: var(--greyLight);
+      cursor: initial;
+    }
+  
+    .page__numbers {
+      width: 2.6rem;
+      height: 2.6rem;
+      border-radius: 0.4rem;
+    }
+
+      .page__numbers:hover {
+        color: var(--primary);
+      }
+  
+      .page__numbers.active {
+        color: #ffffff;
+        background: var(--primary);
+        font-weight: 600;
+        border: 1px solid var(--primary);
+      }
+  
+      .page__btn {
+      color: var(--greyLight);
+      pointer-events: none;
+      }
+      .page__btn.active {
+        color: var(--greyDark);
+        pointer-events: initial;
+      }
+        .page__btn:hover {
+          color: var(--primary);
+        }

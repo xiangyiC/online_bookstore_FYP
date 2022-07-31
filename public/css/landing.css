@@ -1,0 +1,188 @@
+.font {
+    font-family: 'Mukta Vaani', sans-serif;
+  }
+
+.category .icon{
+display: inline-block;
+vertical-align: middle;
+-webkit-transform: perspective(1px) translateZ(0);
+transform: perspective(1px) translateZ(0);
+box-shadow: 0 0 1px transparent;
+-webkit-transition-duration: 0.3s;
+transition-duration: 0.3s;
+-webkit-transition-property: box-shadow, transform;
+transition-property: box-shadow, transform;
+display: table-cell;
+vertical-align: middle;
+color: white;
+border-radius: 35px;
+width: 180px;
+height: 180px;
+text-align: center;
+/*background: #007991;  /* fallback for old browsers */
+/*background: -webkit-linear-gradient(to bottom, #78ffd6, #007991);  /* Chrome 10-25, Safari 5.1-6 */
+/*background: linear-gradient(to bottom, #78ffd6, #007991); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.icon:hover, .icon:focus, .icon:active {
+box-shadow: 0 50px 50px -50px rgba(0, 0, 0, 50);
+-webkit-transform: scale(1.1);
+transform: scale(1.1);
+background-color: rgba(255, 255, 255, 0.653);
+}
+
+.icontext{
+text-align: center;
+color: black;
+font-size: 1.3em;
+font-weight: 400;
+}
+
+
+
+table {
+float:center;
+  border-spacing: 60px;
+  border-collapse: separate;
+  
+}
+
+.carousel-fade .carousel-item{
+max-height:600px!important;
+}
+
+.carousel-fade .carousel-item img{
+object-fit:cover;
+}
+
+
+.checked {
+color: orange;
+}
+
+
+.card-title{
+font-size:1em;
+}
+
+.card-text{
+font-size:0.85em;
+}
+
+.carouselExampleIndicators2 .carousel-item img{
+max-width: 226px!important;
+max-height: 400px!important;
+object-fit: cover!important;
+}
+
+@media screen and (min-width: 992px){
+  .new-arrival-md, .new-arrival-sm{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 991px) and (min-width:768px) {
+.new-arrival-lg, .new-arrival-sm{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .new-arrival-md, .new-arrival-lg{
+    display: none;
+  }
+}
+
+.carousel-item .card{
+  min-height: 520px!important;
+}
+
+.new-arrival-lg, .new-arrival-md{
+  background-color: whitesmoke;
+}
+
+.new-arrival-lg .carousel-item .card{
+  margin-left: -10px;
+}
+
+/*mobile screen*/
+@media screen and (max-width: 550px) {
+ 
+    .category .icon{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.add-to-cart {
+  align-items: center;
+  background-color: #fff;
+  border: 2px solid #000;
+  box-sizing: border-box;
+  color: #000;
+  cursor: pointer;
+  display: inline-flex;
+  fill: #000;
+  font-family: Inter,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: -.8px;
+  line-height: 24px;
+  width: 100px!important;
+  outline: 0;
+  padding: 0 17px;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.add-to-cart:focus {
+  color: #171e29;
+}
+
+.add-to-cart:hover {
+  border-color: #06f;
+  color: #06f;
+  fill: #06f;
+}
+
+.add-to-cart:active {
+  border-color: #06f;
+  color: #06f;
+  fill: #06f;
+}
+
+@media (min-width: 150px) {
+  .add-to-cart {
+    min-width: 135px;
+  }
+}
+
+.container-fluid .carousel-control-prev,.container-fluid .carousel-control-next  {
+  /*width: 50px!important;*/
+  margin: 200px 0;
+}
+
+.cart-button{
+  text-align: center;
+  margin: 20px auto;
+}
+
+.title{
+  height: 50px;
+}
+
+.category{
+  background-color: whitesmoke;
+  margin-top: 40px;
+  
+}
+
+.landing-content{
+  background-color: whitesmoke;
+}

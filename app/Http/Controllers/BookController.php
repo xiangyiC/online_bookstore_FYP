@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\Models\Category;
 use App\Models\Book;
+use App\Models\Stationery;
 Use Session;
 
 class BookController extends Controller
@@ -47,7 +48,8 @@ class BookController extends Controller
         $book_list=DB::table('books')
         ->leftjoin('categories','categories.category_ID','=','books.category_ID')
         ->select('books.*','categories.category_name as categoryName', 'categories.category_type as categoryType')
-        ->get();
+        //->get();
+        ->paginate(5);
         return view('admin_book_list')->with('books',$book_list);
     }
 
@@ -77,5 +79,31 @@ class BookController extends Controller
         ->update(['book_title' => $r->bookTitle, 'book_price' =>$r->bookPrice,'book_quantity' =>$r->bookQuantity,'book_publisher' =>$r->bookPublisher,'book_author' =>$r->bookAuthor,'book_pages' =>$r->bookPages,'book_language' =>$r->bookLanguage,'book_format' =>$r->bookFormat,'book_Description' =>$r->bookDescription,'category_ID' =>$r->categoryID]); 
         
         return redirect()->route('admin_book_list');
+    }
+
+    public function landing(){
+        $book_count = DB::table('books')->count();
+        if($book_count>0 && $book_count <= 12){
+            $news=Book::all()->sortByDesc('created_at')->take($book_count);
+        }else if($new_count>12){
+            $news=Book::all()->sortByDesc('created_at')->take(12);
+        }
+
+        if($book_count>0 && $book_count <= 12){
+            $books=Book::all()->take($book_count);
+        }else if($book_count>12){
+            $books=Book::all()->take(12);
+        }
+
+        $stationery_count = DB::table('stationeries')->count();
+
+        if($stationery_count>0 && $stationery_count <= 12){
+            $stationeries=Stationery::all()->take($stationery_count);
+        }else if($book_count>12){
+            $stationeries=Stationery::all()->take(12);
+        }
+        
+        return view('landing', compact(['news', 'books','stationeries']));
+        //return view('landing')->with('news',$new_arrival);
     }
 }

@@ -25,9 +25,9 @@ Route::get('/admin', function () {
     return view('admin_layout');
 });
 
-Route::get('/admin_dashboard', function () {
-    return view('admin_dashboard');
-})->name('admin_dashboard');
+//Route::get('/admin_dashboard', function () {
+  //  return view('admin_dashboard');
+//})->name('admin_dashboard');
 
 Route::get('/admin_add_book_category', function () {
     return view('admin_add_book_category');
@@ -95,9 +95,11 @@ Route::get('/admin_edit_stationery/{stationery_ISBN}',[App\Http\Controllers\Stat
 
 Route::post('/admin_update_stationery',[App\Http\Controllers\StationeryController::class,'update_stationery'])->name('admin_update_stationery');
 
-Route::get('/landing', function () {
-    return view('landing');
-})->name('landing');
+//Route::get('/landing', function () {
+  //  return view('landing');
+//})->name('landing');
+
+Route::get('/landing',[App\Http\Controllers\BookController::class,'landing'])->name('landing');
 
 Route::get('/checkout', function () {
     return view('checkout');
@@ -107,8 +109,19 @@ Route::get('/admin_order_details', function () {
     return view('admin_order_details');
 })->name('admin_order_details');
 
-//Route::get('/admin_customer_list', function () {
-  //  return view('admin_customer_list');
-//})->name('admin_customer_list');
 
 Route::get('/admin_customer_list',[App\Http\Controllers\UserController::class,'view_customer'])->name('admin_customer_list');
+
+Route::get('/admin_dashboard',[App\Http\Controllers\DashboardController::class,'index'])->name('admin_dashboard');
+
+Route::get('/loginpage', function () {
+    return view('login');
+});
+
+Route::get('/my_cart', function () {
+    return view('my_cart');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

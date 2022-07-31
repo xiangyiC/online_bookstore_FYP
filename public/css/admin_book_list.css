@@ -1,6 +1,7 @@
-.category-list{
-    margin: 50px;
-}
+.category-list-title{
+    position: relative;
+    top: 5px;
+  }
 
 .category-list table{
     
@@ -8,7 +9,6 @@
     margin-right: auto;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     background-color: white;
-    border-radius: 0.8rem;
     font-size: 0.8rem;
 }
 
@@ -17,10 +17,14 @@
     background-color: transparent;
 }
 
-.category-list-title{
-    text-align: center;
-    margin-bottom: 25px;
+
+.top{
+    padding-top: 15px;
+    padding-bottom: 20px;
+    background-color: white;
+   
 }
+
 
 .description{
     width: max-content!important;
@@ -28,4 +32,9 @@
 
 .ISBN{
     word-wrap: break-word;
+}
+
+.pagination{
+    position: relative;
+    left: 180px;
 }

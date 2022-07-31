@@ -35,7 +35,7 @@
 
                 <div class="book-add-form-row">
                     <label for="bookPrice" class="book-add-content-title">Price</label>
-                    <input type="number" class="book-add-content-inputbox" id="bookPrice" name="bookPrice" min=0 value="{{$book->book_price}}">
+                    <input type="number" class="book-add-content-inputbox" id="bookPrice" name="bookPrice" min=0 value="{{$book->book_price}}" step="any">
                 </div>
 
                 <div class="book-add-form-row">

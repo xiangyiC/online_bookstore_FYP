@@ -138,13 +138,13 @@
 
                             <li class="sidebar-item">
                                 <a class="sidebar-link order" href="{{ route('admin_order_list') }}">
-                                <i class="bi bi-card-heading"></i> <span class="align-middle">Order</span>
+                                <i class="bi bi-clipboard-data"></i> <span class="align-middle">Order</span>
                                 </a>
                             </li>
 
                             <li class="sidebar-item">
                                 <a class="sidebar-link customer" href="index.html">
-                                <i class="bi bi-card-heading"></i> <span class="align-middle">Customer</span>
+                                <i class="bi bi-person"></i> <span class="align-middle">Customer</span>
                                 </a>
                             </li>    
                         </ul>
@@ -154,35 +154,38 @@
 
                 <!--Navigation Bar-->
                 <div class="main">
-                    <nav class="navbar navbar-expand navbar-light navbar-bg">
-                        <a class="sidebar-toggle sidebar-show">
-                            <i class="bi bi-list hamburger"></i>
-                        </a>
-
-                        <div class="navbar-collapse collapse">
-                            <ul class="navbar-nav navbar-align">
-                                <li class="nav-item">
-                                    <a class="nav-link home">Home</a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle d-none d-sm-inline-block user rounded me-1" href="#" data-bs-toggle="dropdown">
-                                        <img src="{{asset('images/hexiao.jpg')}}" class="avatar img-fluid rounded me-1" alt="user" /> <span class="text-dark username">He Xiao</span>
+                    <nav class="navbar navbar-expand-lg bg-light">
+                        <div class="container-fluid">
+                            <a class="sidebar-toggle sidebar-show">
+                                <i class="bi bi-list hamburger"></i>
+                            </a>
+                            <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarNav">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                    <a class="nav-link" aria-current="page" href="#">Home</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        User Name
                                     </a>
-                                    <div class="dropdown-menu dropdown-menu-end about-user">
-                                        <a class="dropdown-item" href=""><i class="bi bi-person-bounding-box"></i>	Profile</a>
-                                        <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#user-manual"><i class="bi bi-book"></i>	User Mannual</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="#">User Manual</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                                            document.getElementById('logout-form').submit();"><i class="bi bi-box-arrow-right"></i>{{ __('Logout') }}</a>
+                                                            document.getElementById('logout-form').submit();"><i class="bi bi-box-arrow-right"></i> {{ __('Logout') }}</a>
                                             </a>
 
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                                 @csrf
-                                            </form>
-                                    </div>
-                                </li>
-                            </ul>
+                                            </form></li>
+                                    </ul>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </nav>
                     @if(Session::has('success'))

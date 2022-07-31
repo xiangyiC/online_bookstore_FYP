@@ -1,6 +1,7 @@
 .navbar {
     border-bottom: 0;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+ 
   }
 
 .navbar .avatar {
@@ -12,10 +13,6 @@
     margin-left: auto;
   }
   
-  .navbar-bg {
-    background: rgba(255, 255, 255, 0.925);
-  }
-  
   @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     .navbar .avatar {
       max-height: 47px;
@@ -24,6 +21,12 @@
   
   .nav-item a{
     padding-bottom: 8px;
+    color: rgb(82, 78, 183);
+  }
+
+  .nav-item a:hover{
+    padding-bottom: 8px;
+    color: rgba(93, 87, 254, 0.84);
   }
 
   .main {
@@ -50,18 +53,6 @@
     margin-bottom: 0;
   }  
 
-  .about-user{
-    max-width: fit-content!important;
-  }
-
-  #alertsDropdown::after {
-    display: none;
-  }
-
-  .username{
-    font-size: 0.9rem;
-  }
-
   .navbar .user{
     margin-right: 5px;
   }
@@ -81,8 +72,11 @@
   /*hamburger*/
   .hamburger {
     position: relative;
-    left: 12px;
     font-size: x-large;
+    color: rgb(82, 78, 183);
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
   }
   
   .nav-item .home{
@@ -95,4 +89,21 @@
     color: rgb(169, 164, 164)!important;
   }
   
+  .navbar-collapse {
+    justify-content: flex-end;
+}
  
+.navbar-dark .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(82, 78, 183, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")!important;
+}
+
+.navbar-dark .navbar-toggler:focus {
+  border-color: rgb(82, 78, 183)!important;
+} 
+
+@media screen and (max-width: 991px) {
+  .hamburger{
+    display: none;
+  }
+  
+}

@@ -11,7 +11,7 @@
 </script>
 
 <div class="container-fluid book-category-add">
-    <div class="row">
+    <div class="row justify-content-center align-items-center">
         <div class="col-lg-6 col-md-6 col-sm-12 book-category-add-content-img">
             <img class="img-fluid book-category-add-img" src="{{asset('images/add_category_wallpaper.jpg')}}" alt="bookstore-wallpaper">
         </div>
@@ -19,7 +19,7 @@
             <form action="{{route('add_book_category')}}" method="POST" name="book_category_add_form">
                 @CSRF
                 <h4 class="book-category-add-title">New Book Category</h4>
-                <div class="book-category-add-form-row">
+                <div class="book-category-add-form-row" >
                     <label for="book_category" class="book-category-add-content-title">Book Category</label>
                     <input type="text" class="book-category-add-content-inputbox" id="book_category" name="book_category" placeholder="Eg: fiction">
                 </div>

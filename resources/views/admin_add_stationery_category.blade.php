@@ -11,7 +11,7 @@
 </script>
 
 <div class="container-fluid stationery-category-add">
-    <div class="row">
+    <div class="row justify-content-center align-items-center">
         <div class="col-lg-6 col-md-6 col-sm-12 stationery-category-add-content-img">
             <img class="img-fluid stationery-category-add-img" src="{{asset('images/add_stationery_category_wallpaper.jpg')}}" alt="bookstore-wallpaper">
         </div>
