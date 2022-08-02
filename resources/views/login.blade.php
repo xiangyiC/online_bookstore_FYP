@@ -168,7 +168,7 @@ body {
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-lock lock"></i></span>
+                                        <span class="input-group-addon"><i class="bi bi-lock-fill"></i></span>
                                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password">
                                         @error('password')
                                             <span class="invalid-feedback" role="alert">

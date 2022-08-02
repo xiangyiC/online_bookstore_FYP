@@ -16,6 +16,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200&display=swap" rel="stylesheet">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <meta name="csrf-token" content="{{ csrf_token() }}" />
     </head>
 
     <body>
@@ -38,6 +39,9 @@
             </div>
 
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('landing') }}">HOME</a>
+            </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 BOOKS
@@ -53,17 +57,49 @@
             <li class="nav-item">
               <a class="nav-link" href="#">STATIONERY</a>
             </li>
+            @guest
             <li class="nav-item">
-              <a class="nav-link" href="#">LOG IN / SIGN UP</a>
+              <a class="nav-link" href="{{ route('login') }}">LOG IN / SIGN UP</a>
             </li>
+            @endguest
             <li class="nav-item cart">
-              <a class="nav-link" href="#"><i class="bi bi-cart-fill" style="font-size: 1.2em"></i> <i class="bi bi-circle-fill cart-count" style="font-size: 0.7em"><span class="cart-num">1</span></i> <span style="font-size: 0.8em" class="price">RM19.90</span></a>
+              @guest
+              <a class="nav-link" href="{{route('show_my_cart')}}"><i class="bi bi-cart-fill cart" style="font-size: 1.2em; top:5px;"></i></a>
+              @else
+              <a class="nav-link" href="{{route('show_my_cart')}}"><i class="bi bi-cart-fill cart" style="font-size: 1.2em"></i> 
+
+              <i class="bi bi-circle-fill cart-count" style="font-size: 0.7em"><span class="cart-num" style="">{{\App\Http\Controllers\CartController::cartItem()}}</span></i></a>
+              @endguest
             </li>
+          @guest
+           @else
+            <li class="nav-item logout">
+              <a class="nav-link" href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                  document.getElementById('logout-form').submit();">
+                  <i class="bi bi-box-arrow-right logout-icon" style="color:white;"></i>
+              </a>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                  </form>
+            </li>
+            @endguest
             
           </ul>
         </div>
     </div>
   </nav>
+                    @if(Session::has('success'))
+                    <div class="alert alert-success" role="alert">
+                        {{Session::get('success')}}
+
+                    </div>
+                    @elseif(Session::has('error'))
+                    <div class="alert alert-danger" role="alert">
+                        {{Session::get('error')}}
+
+                    </div>
+                    @endif
 
 <!-- end of top -->
 <br>
@@ -106,5 +142,9 @@
 <!-- end footer -->
 
 </body>
+
+<script>
+        
+    </script>
 
 </html>

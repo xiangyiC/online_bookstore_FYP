@@ -105,5 +105,23 @@
   .hamburger{
     display: none;
   }
+  .sidebar-hide{
+    display: block;
+  }
+  .sidebar-hide .dropdown-item{
+    padding: 8px;
+  }
+
+  .username .dropdown-menu,.sidebar-hide .dropdown-menu{
+    background-color: #f8f9fa;
+    border: none;
+  }  
+  
+}
+
+@media screen and (min-width: 992px) {
+  .sidebar-hide{
+    display: none;
+  }
   
 }

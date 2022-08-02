@@ -118,9 +118,23 @@ Route::get('/loginpage', function () {
     return view('login');
 });
 
-Route::get('/my_cart', function () {
+/*Route::get('/my_cart', function () {
     return view('my_cart');
 });
+*/
+Route::get('/cart-count', [App\Http\Controllers\CartController::class, 'cartItem']);
+
+Route::get('/load-cart-data', [App\Http\Controllers\CartController::class, 'cartItem']);
+
+Route::get('/my_cart', [App\Http\Controllers\CartController::class, 'showMyCart'])->name('show_my_cart');
+
+Route::post('/add_cart', [App\Http\Controllers\CartController::class, 'add_cart'])->name('add_to_cart');
+
+Route::post('/update_cart', [App\Http\Controllers\CartController::class, 'update_cart'])->name('update_cart');
+
+Route::get('/delete_cart/{ISBN}',[App\Http\Controllers\CartController::class,'delete_cart'])->name('delete_cart');
+
+//Route::post('/update_cart', [App\Http\Controllers\CartController::class, 'update'])->name('update_cart');
 
 Auth::routes();
 

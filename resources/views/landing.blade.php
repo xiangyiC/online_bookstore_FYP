@@ -1,10 +1,6 @@
 <head>
     <link href="{{ url('css/landing.css') }}" rel="stylesheet" type="text/css">
 </head>
-<script>
-  //var p = document.getElementsByClassName("price").innerHTML;
-  //alert(p);
-</script>
 
 @extends('landing_layout')
 @section('customer_content')
@@ -46,6 +42,8 @@
       <div class="col-6">
         <h3 class="mb-3">NEW ARRIVALS</h3>
       </div>
+      <form action="{{route('add_to_cart')}}" method="POST">
+      @CSRF
       <div class="col-md-12">
         <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
@@ -55,6 +53,9 @@
                 @foreach($newCollections as $new)
                 <div class="col-lg-2 col-md-3 mb-3 col-sm-12">
                   <div class="card">
+                    <input type="hidden" name="ISBN" value="{{$new->book_ISBN}}">
+                    <input type="hidden" name="quantity" value="1">
+                    <input type="hidden" name="type" value="book">
                     <img class="img-fluid" alt="100%x280" src="{{asset('images/')}}/{{$new->book_image}}">
                     <div class="card-body">
                       <div class="title">
@@ -76,8 +77,6 @@
                     </div>
                   </div>
                 </div>
-
-                
                 @endforeach
 
               </div>
@@ -99,6 +98,7 @@
           </a>
           <!--/.Controls-->
       </div>
+    </form>
     </div>
   </div>
 </section>
@@ -665,6 +665,7 @@
 
 <!-- end category logo -->
 </div>
+
 <!-- end landing-content -->
 @endsection
 

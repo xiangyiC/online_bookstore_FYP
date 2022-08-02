@@ -11,6 +11,7 @@
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+            
         </head>
         <script>
             $(document).ready(function(){
@@ -165,25 +166,69 @@
                             <div class="collapse navbar-collapse" id="navbarNav">
                                 <ul class="navbar-nav">
                                     <li class="nav-item">
-                                    <a class="nav-link" aria-current="page" href="#">Home</a>
+                                        <a class="nav-link" aria-current="page" href="{{ route('landing') }}">Home</a>
                                     </li>
-                                    <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        User Name
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="#">User Manual</a></li>
-                                        <li><hr class="dropdown-divider"></li>
-                                        <li><a class="dropdown-item" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                            document.getElementById('logout-form').submit();"><i class="bi bi-box-arrow-right"></i> {{ __('Logout') }}</a>
-                                            </a>
+                                    <li class="nav-item dropdown username">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            User Name
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <li><a class="dropdown-item" href="#">User Manual</a></li>
+                                            <li><a class="dropdown-item" href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();
+                                                                document.getElementById('logout-form').submit();"><i class="bi bi-box-arrow-right"></i> {{ __('Logout') }}</a>
+                                                </a>
 
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                                @csrf
-                                            </form></li>
-                                    </ul>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                    @csrf
+                                                </form>
+                                            </li>
+                                        </ul>
                                     </li>
+
+                                    <div class="sidebar-hide">
+                                        <li class="nav-item">
+                                            <a class="nav-link" aria-current="page" href="{{ route('admin_dashboard') }}">
+                                                <i class="bi bi-columns"></i><span class="align-middle"> Dashboard</span></a>
+                                        </li>
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="bi bi-book" style="font-style: normal;"> Book</i>
+                                            </a>
+                                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                <li><a class="dropdown-item" href="{{ route('admin_add_book_category') }}"><i class="bi bi-plus-circle"></i> New Category</a></li>
+                                                <li><a class="dropdown-item" href="{{ route('admin_book_category_list') }}"><i class="bi bi-list-ul"></i> Category List</a></li>
+                                                <li><a class="dropdown-item" href="{{ route('admin_add_book') }}"><i class="bi bi-plus-square"></i> New Book</a></li>
+                                                <li><a class="dropdown-item" href="{{ route('admin_book_list') }}"><i class="bi bi-list-ol"></i> Book List</a></li>
+                                                
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="bi bi-brush" style="font-style: normal;"> Stationery</i>
+                                            </a>
+                                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                <li><a class="dropdown-item" href="{{ route('admin_add_stationery_category') }}"><i class="bi bi-plus-circle"></i> New Category</a></li>
+                                                <li><a class="dropdown-item" href="{{ route('admin_stationery_category_list') }}"><i class="bi bi-list-ul"></i> Category List</a></li>
+                                                <li><a class="dropdown-item" href="{{ route('admin_add_stationery') }}"><i class="bi bi-plus-square"></i> New Stationery</a></li>
+                                                <li><a class="dropdown-item" href="{{ route('admin_stationery_list') }}"><i class="bi bi-list-ol"></i> Stationery List</a></li>
+                                                
+                                            </ul>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a class="nav-link" aria-current="page" href="{{ route('admin_order_list') }}">
+                                                <i class="bi bi-clipboard-data"></i> <span class="align-middle">Order</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" aria-current="page" href="#">
+                                                <i class="bi bi-person"></i> <span class="align-middle">Customer</span>
+                                            </a>
+                                        </li>
+
+                                    </div>
+
                                 </ul>
                             </div>
                         </div>
@@ -207,3 +252,4 @@
             </div>    
         </body>
     <html>
+    
