@@ -1,13 +1,9 @@
 <head>
     <link href="{{ url('css/admin_order_list.css') }}" rel="stylesheet" type="text/css">
 </head>
-@extends('admin_layout')
-@section('content')
+@extends('landing_layout')
+@section('customer_content')
 <script>
-    $(".order").toggleClass("sidebar-dropdown-link-active-book");
-    $(".sidebar-link").click(function(){
-        $(".order").removeClass("sidebar-dropdown-link-active-book");
-    });
 
     function status(s){
         var v= s.value;
@@ -63,7 +59,7 @@
                         <td>{{$order->payment_status}}</td>
                         <td>{{$order->created_at}}</td>
                         <td>{{$order->order_status}}</td>
-                        <td><a href="{{ route('delete_order',['id'=>$order->id])}}" onClick="return confirm('Are you confirm to delete?')"><button type="button" class="btn btn-dark delete">Delete</button></a><a href="{{route('admin_order_details',['id'=>$order->id])}}"><button type="button" class="btn btn-dark view">View</button></a></td>
+                        <td><a href="{{route('order_details',['id'=>$order->id])}}"><button type="button" class="btn btn-dark view">View</button></a></td>
                         <?php
                             $i++;
                         ?>

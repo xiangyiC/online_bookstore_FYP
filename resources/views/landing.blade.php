@@ -42,8 +42,7 @@
       <div class="col-6">
         <h3 class="mb-3">NEW ARRIVALS</h3>
       </div>
-      <form action="{{route('add_to_cart')}}" method="POST">
-      @CSRF
+
       <div class="col-md-12">
         <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
@@ -61,17 +60,15 @@
                       <div class="title">
                         <h4 class="card-title">{{$new->book_title}}</h4>
                       </div>
-                      <p class="card-text price">RM{{number_format($new->book_price, 2)}}</p>
-                      <div class = "product-rating">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
+                      <div class="author">
+                        <i style="font-size:0.8em">{{$new->book_author}}</i>
                       </div>
+                      
+                      <p class="card-text price">RM{{number_format($new->book_price, 2)}}</p>
+                      
                       <div class="cart-button mx-auto">
                         <!--button -->
-                        <button type="submit" class="add-to-cart">Add To Cart</button>
+                        <a href="{{ route('book_detail',['ISBN'=>$new->book_ISBN])}}"><button type="button" class="add-to-cart">View Details</button></a>
                         <!-- end button -->
                       </div>
                     </div>
@@ -98,7 +95,7 @@
           </a>
           <!--/.Controls-->
       </div>
-    </form>
+  
     </div>
   </div>
 </section>
@@ -124,17 +121,14 @@
                     <div class="title">
                         <h4 class="card-title">{{$new->book_title}}</h4>
                       </div>
-                      <p class="card-text price">RM{{number_format($new->book_price, 2)}}</p>
-                      <div class = "product-rating">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
+                      <div class="author">
+                        <i style="font-size:0.8em">{{$new->book_author}}</i>
                       </div>
+                      <p class="card-text price">RM{{number_format($new->book_price, 2)}}</p>
+                      
                       <div class="cart-button mx-auto">
                         <!--button -->
-                        <button type="submit" class="add-to-cart">Add To Cart</button>
+                        <a href="{{ route('book_detail',['ISBN'=>$new->book_ISBN])}}"><button type="button" class="add-to-cart">View Details</button></a>
                         <!-- end button -->
                       </div>
                     </div>
@@ -191,17 +185,14 @@
                     <div class="title">
                         <h4 class="card-title">{{$new->book_title}}</h4>
                       </div>
-                      <p class="card-text price">RM{{number_format($new->book_price, 2)}}</p>
-                      <div class = "product-rating">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
+                      <div class="author">
+                        <i style="font-size:0.8em">{{$new->book_author}}</i>
                       </div>
+                      <p class="card-text price">RM{{number_format($new->book_price, 2)}}</p>
+                      
                       <div class="cart-button mx-auto">
                         <!--button -->
-                        <button type="submit" class="add-to-cart">Add To Cart</button>
+                        <a href="{{ route('book_detail',['ISBN'=>$new->book_ISBN])}}"><button type="button" class="add-to-cart">View Details</button></a>
                         <!-- end button -->
                       </div>
                     </div>
@@ -256,17 +247,14 @@
                     <div class="title">
                         <h4 class="card-title">{{$book->book_title}}</h4>
                       </div>
-                      <p class="card-text price">RM{{number_format($book->book_price, 2)}}</p>
-                      <div class = "product-rating">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
+                      <div class="author">
+                        <i style="font-size:0.8em">{{$book->book_author}}</i>
                       </div>
+                      <p class="card-text price">RM{{number_format($book->book_price, 2)}}</p>
+                      
                       <div class="cart-button mx-auto">
                         <!--button -->
-                        <button type="submit" class="add-to-cart">Add To Cart</button>
+                        <a href="{{ route('book_detail',['ISBN'=>$book->book_ISBN])}}"><button type="button" class="add-to-cart">View Details</button></a>
                         <!-- end button -->
                       </div>
                     </div>
@@ -320,17 +308,14 @@
                     <div class="title">
                         <h4 class="card-title">{{$book->book_title}}</h4>
                       </div>
-                      <p class="card-text price">RM{{number_format($book->book_price, 2)}}</p>
-                      <div class = "product-rating">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
+                      <div class="author">
+                        <i style="font-size:0.8em">{{$book->book_author}}</i>
                       </div>
+                      <p class="card-text price">RM{{number_format($book->book_price, 2)}}</p>
+                      
                       <div class="cart-button mx-auto">
                         <!--button -->
-                        <button type="submit" class="add-to-cart">Add To Cart</button>
+                        <a href="{{ route('book_detail',['ISBN'=>$book->book_ISBN])}}"><button type="button" class="add-to-cart">View Details</button></a>
                         <!-- end button -->
                       </div>
                     </div>
@@ -387,17 +372,14 @@
                     <div class="title">
                         <h4 class="card-title">{{$book->book_title}}</h4>
                       </div>
-                      <p class="card-text price">RM{{number_format($book->book_price, 2)}}</p>
-                      <div class = "product-rating">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
+                      <div class="author">
+                        <i style="font-size:0.8em">{{$book->book_author}}</i>
                       </div>
+                      <p class="card-text price">RM{{number_format($book->book_price, 2)}}</p>
+                      
                       <div class="cart-button mx-auto">
                         <!--button -->
-                        <button type="submit" class="add-to-cart">Add To Cart</button>
+                        <a href="{{ route('book_detail',['ISBN'=>$book->book_ISBN])}}"><button type="button" class="add-to-cart">View Details</button></a>
                         <!-- end button -->
                       </div>
                     </div>
@@ -450,20 +432,17 @@
                   <div class="card">
                     <img class="img-fluid" alt="100%x280" src="{{asset('images/')}}/{{$stationery->stationery_image}}">
                     <div class="card-body">
+                    <input type="hidden" name="ISBN" value="{{$stationery->stationery_ISBN}}">
+                    <input type="hidden" name="quantity" value="1">
+                    <input type="hidden" name="type" value="stationery">
                     <div class="title" style="height: 60px;">
                         <h4 class="card-title">{{$stationery->stationery_title}}</h4>
                       </div>
                       <p class="card-text price">RM{{number_format($stationery->stationery_price, 2)}}</p>
-                      <div class = "product-rating">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                      </div>
+                      
                       <div class="cart-button mx-auto">
                         <!--button -->
-                        <button type="submit" class="add-to-cart">Add To Cart</button>
+                        <a href="{{ route('stationery_details',['ISBN'=>$stationery->stationery_ISBN])}}"><button type="button" class="add-to-cart">View Details</button></a>
                         <!-- end button -->
                       </div>
                     </div>
@@ -518,16 +497,10 @@
                         <h4 class="card-title">{{$stationery->stationery_title}}</h4>
                       </div>
                       <p class="card-text price">RM{{number_format($stationery->stationery_price, 2)}}</p>
-                      <div class = "product-rating">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                      </div>
+                      
                       <div class="cart-button mx-auto">
                         <!--button -->
-                        <button type="submit" class="add-to-cart">Add To Cart</button>
+                        <a href="{{ route('stationery_details',['ISBN'=>$stationery->stationery_ISBN])}}"><button type="button" class="add-to-cart">View Details</button></a>
                         <!-- end button -->
                       </div>
                     </div>
@@ -585,16 +558,10 @@
                         <h4 class="card-title">{{$stationery->stationery_title}}</h4>
                       </div>
                       <p class="card-text price">RM{{number_format($stationery->stationery_price, 2)}}</p>
-                      <div class = "product-rating">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                      </div>
+                      
                       <div class="cart-button mx-auto">
                         <!--button -->
-                        <button type="submit" class="add-to-cart">Add To Cart</button>
+                        <a href="{{ route('stationery_details',['ISBN'=>$stationery->stationery_ISBN])}}"><button type="button" class="add-to-cart">View Details</button></a>
                         <!-- end button -->
                       </div>
                     </div>

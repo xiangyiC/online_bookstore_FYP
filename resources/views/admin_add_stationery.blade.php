@@ -21,27 +21,27 @@
             
                 <div class="stationery-add-form-row">
                     <label for="stationeryISBN" class="stationery-add-content-title">ISBN</label>
-                    <input type="text" class="stationery-add-content-inputbox" id="stationeryISBN" name="stationeryISBN" placeholder="Eg: 122426">
+                    <input type="text" class="stationery-add-content-inputbox" id="stationeryISBN" name="stationeryISBN" placeholder="Eg: 122426" required>
                 </div>
 
                 <div class="stationery-add-form-row">
                     <label for="stationeryTitle" class="stationery-add-content-title">Name</label>
-                    <input type="text" class="stationery-add-content-inputbox" id="stationeryTitle" name="stationeryTitle" placeholder="Eg: Faber-Castell Wax Crayon 24 Colour Clamshell">
+                    <input type="text" class="stationery-add-content-inputbox" id="stationeryTitle" name="stationeryTitle" placeholder="Eg: Faber-Castell Wax Crayon 24 Colour Clamshell" required>
                 </div>
 
                 <div class="stationery-add-form-row">
                     <label for="stationeryPrice" class="stationery-add-content-title">Price</label>
-                    <input type="number" class="stationery-add-content-inputbox" id="stationeryPrice" name="stationeryPrice" placeholder="Eg: 8.50" min=0 step="any">
+                    <input type="number" class="stationery-add-content-inputbox" id="stationeryPrice" name="stationeryPrice" placeholder="Eg: 8.50" min=0 step="any" required>
                 </div>
 
                 <div class="stationery-add-form-row">
                     <label for="stationeryQuantity" class="stationery-add-content-title">Quantity</label>
-                    <input type="number" class="stationery-add-content-inputbox" id="stationeryQuantity" name="stationeryQuantity" placeholder="Eg: 25" min=0>
+                    <input type="number" class="stationery-add-content-inputbox" id="stationeryQuantity" name="stationeryQuantity" placeholder="Eg: 25" min=0 required>
                 </div>
 
                 <div class="stationery-add-form-row">
                     <label for="stationeryPublisher" class="stationery-add-content-title">Publisher</label>
-                    <input type="text" class="stationery-add-content-inputbox" id="stationeryPublisher" name="stationeryPublisher" placeholder="Eg: Faber-Castell">
+                    <input type="text" class="stationery-add-content-inputbox" id="stationeryPublisher" name="stationeryPublisher" placeholder="Eg: Faber-Castell" required>
                 </div>
 
                 <div class="stationery-add-form-row selectbox">
@@ -55,13 +55,13 @@
 
                 <div class="stationery-add-form-row">
                     <label for="stationeryImage" class="stationery-add-content-title">Image</label>
-                    <input type="file" class="book-add-content-inputbox stationery-image" id="stationeryImage" name="stationeryImage" accept="image/*">
+                    <input type="file" class="book-add-content-inputbox stationery-image" id="stationeryImage" name="stationeryImage" accept="image/*" required>
                 </div>
 
 
                 <div class="stationery-add-form-row-textarea">
                     <label for="stationeryDescription" class="stationery-add-content-title">Description</label><br>
-                    <textarea id="stationeryDescription" name="stationeryDescription" rows="4"></textarea>
+                    <textarea id="stationeryDescription" name="stationeryDescription" rows="4" required></textarea>
                 </div>
 
                 <div class="stationery-add-button">

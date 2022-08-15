@@ -20,7 +20,8 @@ class BookController extends Controller
 
         $add_book=Book::firstOrCreate([
             
-            'book_ISBN'=> $r->bookISBN,
+            'book_ISBN'=> $r->bookISBN],
+            [
             'book_title'=> $r->bookTitle,
             'book_price'=> $r->bookPrice,
             'book_quantity'=> $r->bookQuantity,
@@ -83,13 +84,13 @@ class BookController extends Controller
 
     public function landing(){
         $book_count = DB::table('books')->count();
-        if($book_count>0 && $book_count <= 12){
+        if($book_count>=0 && $book_count <= 12){
             $news=Book::all()->sortByDesc('created_at')->take($book_count);
-        }else if($new_count>12){
+        }else if($book_count>12){
             $news=Book::all()->sortByDesc('created_at')->take(12);
         }
 
-        if($book_count>0 && $book_count <= 12){
+        if($book_count>=0 && $book_count <= 12){
             $books=Book::all()->take($book_count);
         }else if($book_count>12){
             $books=Book::all()->take(12);
@@ -97,7 +98,7 @@ class BookController extends Controller
 
         $stationery_count = DB::table('stationeries')->count();
 
-        if($stationery_count>0 && $stationery_count <= 12){
+        if($stationery_count>=0 && $stationery_count <= 12){
             $stationeries=Stationery::all()->take($stationery_count);
         }else if($book_count>12){
             $stationeries=Stationery::all()->take(12);
@@ -106,4 +107,26 @@ class BookController extends Controller
         return view('landing', compact(['news', 'books','stationeries']));
         //return view('landing')->with('news',$new_arrival);
     }
+
+    public function book_details($ISBN){
+        $books=DB::table('books')
+        ->leftjoin('categories','categories.category_ID','=','books.category_ID')
+        ->select('books.*','categories.category_name as categoryName', 'categories.category_type as categoryType')
+        ->where('book_ISBN',$ISBN)
+        ->get();
+        return view('product_details')->with('books',$books);
+    }
+
+    public function search_Product(){
+        $r=request();
+        $keyword=$r->keyword;
+        
+        $books=DB::table('books')->where('book_title','like','%'.$keyword.'%')
+        ->get();
+        Session()->put('keyword', $keyword);
+        return view('search')->with('books',$books);
+    }
+
+ 
+
 }

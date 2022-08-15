@@ -19,7 +19,7 @@ class StationeryController extends Controller
 
         $add_stationery=Stationery::firstOrCreate([
             
-            'stationery_ISBN'=> $r->stationeryISBN,
+            'stationery_ISBN'=> $r->stationeryISBN],[
             'stationery_title'=> $r->stationeryTitle,
             'stationery_price'=> $r->stationeryPrice,
             'stationery_quantity'=> $r->stationeryQuantity,
@@ -77,5 +77,15 @@ class StationeryController extends Controller
         ->update(['stationery_title' => $r->stationeryTitle, 'stationery_price' =>$r->stationeryPrice,'stationery_quantity' =>$r->stationeryQuantity,'stationery_publisher' =>$r->stationeryPublisher,'stationery_Description' =>$r->stationeryDescription,'stationery_category_ID' =>$r->stationeryCategoryID]); 
         
         return redirect()->route('admin_stationery_list');
+    }
+
+    public function stationery_details($ISBN){
+        $stationeries=DB::table('stationeries')
+        ->leftjoin('categories','categories.category_ID','=','stationeries.stationery_category_ID')
+        ->select('stationeries.*','categories.category_name as categoryName', 'categories.category_type as categoryType')
+        ->where('stationery_ISBN',$ISBN)
+        ->get();
+        return view('stationery_details')->with('stationeries',$stationeries);
+ 
     }
 }

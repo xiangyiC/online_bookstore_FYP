@@ -17,11 +17,10 @@ class CreateOrderItemsTable extends Migration
             $table->id();
             $table->string('order_ID');
             $table->string('ISBN');
-            $table->string('product_name');
-            $table->string('product_image');
             $table->integer('quantity')->unsigned();
             $table->double('price',8,2);
             $table->double('subtotal',8,2);
+            $table->string('type');
             $table->timestamps();
         });
     }

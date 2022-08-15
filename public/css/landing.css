@@ -157,7 +157,7 @@ object-fit: cover!important;
   fill: #06f;
 }
 
-@media (min-width: 150px) {
+@media screen and (min-width: 1200px), (max-width: 991px){
   .add-to-cart {
     min-width: 135px;
   }
@@ -173,8 +173,16 @@ object-fit: cover!important;
   margin: 20px auto;
 }
 
+.cart-button a:hover{
+  text-decoration: none;
+}
+
 .title{
   height: 50px;
+}
+
+.author{
+  height: 40px;
 }
 
 .category{
@@ -186,4 +194,9 @@ object-fit: cover!important;
 .landing-content{
   background-color: whitesmoke;
 }
+
+.price{
+  color: rgb(9, 82, 192);
+}
+
 

@@ -21,12 +21,12 @@
                 <h4 class="stationery-category-add-title">New Stationery Category</h4>
                 <div class="stationery-category-add-form-row">
                     <label for="stationery_category" class="stationery-category-add-content-title">Book Category</label>
-                    <input type="text" class="stationery-category-add-content-inputbox" id="stationery_category" name="stationery_category" placeholder="Eg: Art & Craft">
+                    <input type="text" class="stationery-category-add-content-inputbox" id="stationery_category" name="stationery_category" placeholder="Eg: Art & Craft" required>
                 </div>
                 
                 <div class="stationery-category-add-form-row">
                     <label for="stationery_category_type" class="stationery-category-add-content-title">Book Category Type</label>
-                    <input type="text" class="stationery-category-add-content-inputbox" id="stationery_category_type" name="stationery_category_type" placeholder="Eg: Colour Material">
+                    <input type="text" class="stationery-category-add-content-inputbox" id="stationery_category_type" name="stationery_category_type" placeholder="Eg: Colour Material" required>
                 </div>
                 <div class="stationery-category-add-button">
                     <button type="submit" class="btn btn-dark">Submit</button>

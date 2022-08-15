@@ -55,4 +55,5 @@ class StationeryCategoryController extends Controller
 
         return redirect()->route('admin_stationery_category_list');
     }
+
 }

@@ -60,12 +60,19 @@
   }
 
   /* Sidebar brand*/
-  .sidebar-brand {
+  .sidebar-brand a{
     font-weight: bold;
     font-size: 1rem;
     padding: 1.15rem 1.5rem;
     display: block;
     color: #f5f3f2;
+    text-decoration: none;
+    
+  }
+
+  .sidebar-brand a:hover{
+    
+    color: rgba(231, 231, 231, 0.97);
     text-decoration: none;
     
   }

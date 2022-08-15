@@ -75,7 +75,7 @@
                 <nav id="sidebar" class="sidebar">
                     <div class="sidebar-content">
                         <div class="sidebar-brand">
-                            <span class="align-middle">Destiny Bookstore</span>
+                            <a class="" href="{{ route('landing') }}"><span class="align-middle">Destiny Bookstore</span></a>
                         </div>
 
                         <ul class="sidebar-nav">
@@ -144,7 +144,7 @@
                             </li>
 
                             <li class="sidebar-item">
-                                <a class="sidebar-link customer" href="index.html">
+                                <a class="sidebar-link customer" href="{{ route('admin_customer_list') }}">
                                 <i class="bi bi-person"></i> <span class="align-middle">Customer</span>
                                 </a>
                             </li>    
@@ -165,14 +165,12 @@
                             </button>
                             <div class="collapse navbar-collapse" id="navbarNav">
                                 <ul class="navbar-nav">
-                                    <li class="nav-item">
-                                        <a class="nav-link" aria-current="page" href="{{ route('landing') }}">Home</a>
-                                    </li>
+                                   
                                     <li class="nav-item dropdown username">
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            User Name
+                                            {{Auth::user()->name}}
                                         </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                             <li><a class="dropdown-item" href="#">User Manual</a></li>
                                             <li><a class="dropdown-item" href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
@@ -187,6 +185,9 @@
                                     </li>
 
                                     <div class="sidebar-hide">
+                                        <li class="nav-item">
+                                            <a class="nav-link" aria-current="page" href="{{ route('landing') }}">Home</a>
+                                        </li>
                                         <li class="nav-item">
                                             <a class="nav-link" aria-current="page" href="{{ route('admin_dashboard') }}">
                                                 <i class="bi bi-columns"></i><span class="align-middle"> Dashboard</span></a>

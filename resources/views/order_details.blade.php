@@ -1,8 +1,8 @@
 <head>
     <link href="{{ url('css/admin_order_list.css') }}" rel="stylesheet" type="text/css">
 </head>
-@extends('admin_layout')
-@section('content')
+@extends('landing_layout')
+@section('customer_content')
 
 <div class="container mt-5">
     <div class="row">
@@ -79,30 +79,12 @@
                 </div>
             </div>
             <br>
-            <form action="{{route('update_order_status')}}" method="POST">
-            @CSRF
-                @foreach($orders as $order)
-                <div class="container-fluid" style="background-color:white; padding:15px">
-                    <p style="float:left; padding-right:50px">Order Status:</p>
-                    <input type="hidden" name="order_ID" value="{{$order->id}}">
-                    <div class="form-check form-check-inline" style="padding-right:25px">
-                        <input class="form-check-input" type="radio" name="status" id="inlineRadio1" value="pending" {{ ($order->order_status =="pending")? "checked" : "" }}>
-                        <label class="form-check-label" for="inlineRadio1">Pending</label>
-                    </div>
-                    <div class="form-check form-check-inline" style="padding-right:25px">
-                        <input class="form-check-input" type="radio" name="status" id="inlineRadio2" value="completed" {{ ($order->order_status =="completed")? "checked" : "" }}>
-                        <label class="form-check-label" for="inlineRadio2">Completed</label>
-                    </div>
-                    <button type="submit" class="btn btn-dark" style="margin-left: 20px; padding:auto 15px">Update</button>    
-                </div>
-            </form>
-            
         </div>
         
         <div class="col-md-5">
             <div class="card" style="font-size: 0.9rem;">
                 <div class="card-body">
-                    
+                    @foreach($orders as $order)
                     <h5 class="card-title">Order Details</h5>
                     <hr>
                     <div class="row">

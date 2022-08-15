@@ -10,12 +10,12 @@ class myCart extends Model
     use HasFactory;
     protected $fillable=['order_ID', 'user_ID','ISBN','type','quantity'];
 
-    public function book(){
-        return $this->belongsTo('App\Models\Book');
+    public function books(){
+        return $this->belongsTo(Book::class,'ISBN','book_ISBN');
     }
 
-    public function stationery(){
-        return $this->belongsTo('App\Models\Stationery');
+    public function stationeries(){
+        return $this->belongsTo(Stationery::class,'ISBN','stationery_ISBN');
     }
 
 

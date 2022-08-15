@@ -22,37 +22,37 @@
 
                 <div class="book-add-form-row">
                     <label for="bookISBN" class="book-add-content-title">ISBN</label>
-                    <input type="text" class="book-add-content-inputbox" id="bookISBN" name="bookISBN" placeholder="Eg: 9780141185620">
+                    <input type="text" class="book-add-content-inputbox" id="bookISBN" name="bookISBN" placeholder="Eg: 9780141185620" required>
                 </div>
 
                 <div class="book-add-form-row">
                     <label for="bookTitle" class="book-add-content-title">Book Title</label>
-                    <input type="text" class="book-add-content-inputbox" id="bookTitle" name="bookTitle" placeholder="Eg: The Little Prince">
+                    <input type="text" class="book-add-content-inputbox" id="bookTitle" name="bookTitle" placeholder="Eg: The Little Prince" required>
                 </div>
 
                 <div class="book-add-form-row">
                     <label for="bookPrice" class="book-add-content-title">Price</label>
-                    <input type="number" class="book-add-content-inputbox" id="bookPrice" name="bookPrice" placeholder="Eg: 39.00" min=0 step=".01" onchange="this.value = Math.round(this.value * 100) / 100).toFixed(2)">
+                    <input type="number" class="book-add-content-inputbox" id="bookPrice" name="bookPrice" placeholder="Eg: 39.00" min=0 step=".01" onchange="this.value = Math.round(this.value * 100) / 100).toFixed(2)" required>
                 </div>
 
                 <div class="book-add-form-row">
                     <label for="bookQuantity" class="book-add-content-title">Quantity</label>
-                    <input type="number" class="book-add-content-inputbox" id="bookQuantity" name="bookQuantity" placeholder="Eg: 25" min=0>
+                    <input type="number" class="book-add-content-inputbox" id="bookQuantity" name="bookQuantity" placeholder="Eg: 25" min=0 required>
                 </div>
 
                 <div class="book-add-form-row">
                     <label for="bookAuthor" class="book-add-content-title">Author</label>
-                    <input type="text" class="book-add-content-inputbox" id="bookAuthor" name="bookAuthor" placeholder="Eg: De Saint-Exupery, Antoine">
+                    <input type="text" class="book-add-content-inputbox" id="bookAuthor" name="bookAuthor" placeholder="Eg: De Saint-Exupery, Antoine" required>
                 </div>
 
                 <div class="book-add-form-row">
                     <label for="bookPublisher" class="book-add-content-title">Publisher</label>
-                    <input type="text" class="book-add-content-inputbox" id="bookPublisher" name="bookPublisher" placeholder="Eg: Penguin Books">
+                    <input type="text" class="book-add-content-inputbox" id="bookPublisher" name="bookPublisher" placeholder="Eg: Penguin Books" required>
                 </div>
 
                 <div class="book-add-form-row">
                     <label for="bookPages" class="book-add-content-title">Pages</label>
-                    <input type="number" class="book-add-content-inputbox" id="bookPages" name="bookPages" placeholder="Eg: 300" min=1>
+                    <input type="number" class="book-add-content-inputbox" id="bookPages" name="bookPages" placeholder="Eg: 300" min=1 required>
                 </div>
 
                 <div class="book-add-form-row selectbox">
@@ -85,12 +85,12 @@
 
                 <div class="book-add-form-row">
                     <label for="bookImage" class="book-add-content-title">Image</label>
-                    <input type="file" class="book-add-content-inputbox book-image" id="bookImage" name="bookImage" accept="image/*">
+                    <input type="file" class="book-add-content-inputbox book-image" id="bookImage" name="bookImage" accept="image/*" required>
                 </div>
 
                 <div class="book-add-form-row-textarea">
                     <label for="bookDescription" class="book-add-content-title">Description</label><br>
-                    <textarea id="bookDescription" name="bookDescription" rows="4"></textarea>
+                    <textarea id="bookDescription" name="bookDescription" rows="4" required></textarea>
                 </div>
                 
                 <div class="book-add-button">

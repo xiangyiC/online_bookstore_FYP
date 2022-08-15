@@ -18,35 +18,49 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <meta name="csrf-token" content="{{ csrf_token() }}" />
     </head>
+    <script>
+      function validateForm() {
+        var k = document.forms["search"]["keyword"].value;
+        if (k == null || k == "") {
+          alert("Please enter book title!");
+          return false;
+        }
+      }
+    </script>
 
     <body>
       
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">DESTINY BOOKSTORE</a>
+        <a class="navbar-brand" href="{{ route('landing') }}">DESTINY BOOKSTORE</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item">
+              <form name="search" action="{{route('search_product')}}" method="POST" onsubmit="return validateForm()">
+                @csrf
+                <div class="input-group searchbar">
+                  <input type="search" class="form-control rounded keyword" placeholder="Search book by title" aria-label="Search" aria-describedby="search-addon" style="border: 1px solid black; border-radius:0;" name="keyword"/>
+                  <button type="submit" class="btn btn-outline-primary search-button" style="border: 2px solid #1266f1;"><i class="bi bi-search"></i></button>
+                </div>
+              </form>
 
-            <div class="box">
-            <form name="search">
-                <input type="text" class="input" name="txt" onmouseout="this.value = ''; this.blur();">
-            </form>
-            <i class="bi bi-search"></i>
-            </div>
-
+              <!--<div class="box">
+                <form name="search" action="{{route('search_product')}}" method="POST">
+                @csrf
+                  <input type="text" class="input" name="keyword">
+                </form>
+                <button type="submit"><i class="bi bi-search"></i></button>
+              </div>-->
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('landing') }}">HOME</a>
-            </li>
+      
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 BOOKS
               </a>
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu dropdown-menu-end">
                 <li><a class="dropdown-item" href="#">FICTION</a></li>
                 <li><a class="dropdown-item" href="#">NON-FICTION</a></li>
                 <li><a class="dropdown-item" href="#">CHILDREN BOOK</a></li>
@@ -73,37 +87,43 @@
             </li>
           @guest
            @else
-            <li class="nav-item logout">
-              <a class="nav-link" href="{{ route('logout') }}"
+           <li class="nav-item dropdown logout">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-person-circle"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="{{route('order_list')}}">MY ORDER</a></li>
+                <li>
+                <a class="dropdown-item" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">
-                  <i class="bi bi-box-arrow-right logout-icon" style="color:white;"></i>
-              </a>
+                  
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
-                  </form>
+                  </form>LOG OUT</a></li>
+              </ul>
             </li>
+           
             @endguest
             
           </ul>
         </div>
     </div>
   </nav>
-                    @if(Session::has('success'))
-                    <div class="alert alert-success" role="alert">
-                        {{Session::get('success')}}
-
-                    </div>
-                    @elseif(Session::has('error'))
-                    <div class="alert alert-danger" role="alert">
-                        {{Session::get('error')}}
-
-                    </div>
-                    @endif
-
+                 
 <!-- end of top -->
 <br>
 <br>
+
+@if(Session::has('success'))
+    <div class="alert alert-success" role="alert">
+        {{Session::get('success')}}
+    </div>
+@elseif(Session::has('error'))
+    <div class="alert alert-danger" role="alert">
+        {{Session::get('error')}}
+    </div>
+@endif
 
 @yield('customer_content')
 
@@ -134,7 +154,7 @@
                   </div>
                 </div>
 
-              <p class="copyright">Company Name © 2018</p>
+              <p class="copyright">Company Name © 2022</p>
 
             </div>
   </footer>

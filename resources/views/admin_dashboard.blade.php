@@ -8,28 +8,32 @@
     $(".sidebar-link").click(function(){
         $(".dashboard").removeClass("sidebar-dropdown-link-active-book");
     });
+
+    localStorage.removeItem("bookDropdownWasOpen");   
+    localStorage.removeItem("stationeryDropdownWasOpen");
+
 </script>
 
 <div class="container-fluid sales-information">
     <div class="row justify-content-center">
         <div class="col-lg-2 col-md-2 col-sm-3 sales-information-content">
             <p class="sales-information-content-title">Order</p>
-            <p class="sales-information-content-number">100</p>
+            <p class="sales-information-content-number">{{session()->get('order_current_month') }}</p>
             <p class="sales-information-content-subtitle">This Month</p>
         </div>
         <div class="col-lg-2 col-md-2 col-sm-3 sales-information-content">
             <p class="sales-information-content-title">Total Order</p>
-            <p class="sales-information-content-number">100</p>
+            <p class="sales-information-content-number">{{session()->get('order_sum') }}</p>
             <p class="sales-information-content-subtitle">Until <?php echo date('Y-m-d');?></p>
         </div>
         <div class="col-lg-2 col-md-2 col-sm-3 sales-information-content">
             <p class="sales-information-content-title">Revenue</p>
-            <p class="sales-information-content-number">RM100</p>
+            <p class="sales-information-content-number">RM{{number_format(session()->get('sales_current_month'), 2)}}</p>
             <p class="sales-information-content-subtitle">This Month</p>
         </div>
         <div class="col-lg-2 col-md-2 col-sm-3 sales-information-content">
             <p class="sales-information-content-title">Total Revenue</p>
-            <p class="sales-information-content-number">RM100</p>
+            <p class="sales-information-content-number">RM{{number_format(session()->get('sales_sum'), 2)}}</p>
             <p class="sales-information-content-subtitle">Until <?php echo date('Y-m-d');?></p>
         </div>
     </div>
@@ -75,10 +79,11 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
     ]
   },
   options: {
-    title: {
-      display: true,
-      text: 'Total Order (in months)'
-    }
+      title: {
+        display: true,
+        text: 'Total Order (in months)'
+      }
+      
   }
 });
 </script>

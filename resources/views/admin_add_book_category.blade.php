@@ -21,12 +21,12 @@
                 <h4 class="book-category-add-title">New Book Category</h4>
                 <div class="book-category-add-form-row" >
                     <label for="book_category" class="book-category-add-content-title">Book Category</label>
-                    <input type="text" class="book-category-add-content-inputbox" id="book_category" name="book_category" placeholder="Eg: fiction">
+                    <input type="text" class="book-category-add-content-inputbox" id="book_category" name="book_category" placeholder="Eg: fiction" required>
                 </div>
                 
                 <div class="book-category-add-form-row">
                     <label for="book_category_type" class="book-category-add-content-title">Book Category Type</label>
-                    <input type="text" class="book-category-add-content-inputbox" id="book_category_type" name="book_category_type" placeholder="Eg: fantasy">
+                    <input type="text" class="book-category-add-content-inputbox" id="book_category_type" name="book_category_type" placeholder="Eg: fantasy" required>
                 </div>
                 <div class="book-category-add-button">
                     <button type="submit" class="btn btn-dark">Submit</button>
