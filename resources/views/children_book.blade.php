@@ -96,7 +96,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-3">
-                    <h3 class="mt-3">Fiction</h3>
+                    <h3 class="mt-3">Children Book</h3>
                     @foreach($category_type as $type)
                     <div class="col-md-12">
                         <a href="{{ route('book_category',['id'=>$type->category_ID,'name'=>$type->category_name])}}" class="category_menu"><p style="text-transform: capitalize;">{{$type->category_type}}</p></a>
@@ -107,7 +107,7 @@
                 $item=0;
                 @endphp
                 <div class="col-md-9">
-                    <h3 class="mt-3 mx-3">Fiction Book</h3>
+                    <h3 class="mt-3 mx-3">Children Book</h3>
                         <ul class="cards">
                             @foreach($categories as $category)      
                             <li class="cards_item">
@@ -131,9 +131,7 @@
                             @php
                             $item++;
                             @endphp
-                           
                         </li> 
-                      
                         @endforeach
                         @if($item == 0)
                         <p class="mx-3">There is no item in this category.</p>

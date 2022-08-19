@@ -1,5 +1,4 @@
-@extends('landing_layout')
-@section('customer_content')
+
 <style>
 
 .product-detail ul{
@@ -20,192 +19,20 @@
     font-weight: 400;
 }
 
-.icon{
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px transparent;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-property: box-shadow, transform;
-  transition-property: box-shadow, transform;
-  display: table-cell;
-  vertical-align: middle;
-  color: white;
-  border-radius: 35px;
-  width: 180px;
-  height: 180px;
-  text-align: center;
-  /*background: #007991;  /* fallback for old browsers */
-  /*background: -webkit-linear-gradient(to bottom, #78ffd6, #007991);  /* Chrome 10-25, Safari 5.1-6 */
-  /*background: linear-gradient(to bottom, #78ffd6, #007991); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-.icon:hover, .icon:focus, .icon:active {
-  box-shadow: 0 50px 50px -50px rgba(0, 0, 0, 50);
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-}
-
-
-
-.icontext{
-  text-align: center;
-  color: black;
-  font-size: 30px;
-  position: relative;
-  right: 30px;
-}
-
-
-
-table {
-  float:center;
-    border-spacing: 60px;
-    border-collapse: separate;
-    
-}
-
-
-.carousel-fade .carousel-item{
-  max-height:700px!important;
-}
-
-.carousel-fade .carousel-item img{
- object-fit:cover;
-}
-
-
-.checked {
-  color: orange;
-}
-
-
-
-#testimonials{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width:100%;
-}
-.testimonial-heading{
-    letter-spacing: 1px;
-    margin: 30px 0px;
-    padding: 10px 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.testimonial-heading span{
-    font-size: 1.3rem;
-    color: #252525;
-    margin-bottom: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-.testimonial-box-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    width:100%;
-}
-.testimonial-box{
-    width:500px;
-    box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
-    background-color: #ffffff;
-    padding: 20px;
-    margin: 15px;
-    cursor: pointer;
-}
-.profile-img{
-    width:50px;
-    height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-right: 10px;
-}
-.profile-img img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-.profile{
-    display: flex;
-    align-items: center;
-}
-.name-user{
-    display: flex;
-    flex-direction: column;
-}
-.name-user strong{
-    color: #3d3d3d;
-    font-size: 1.1rem;
-    letter-spacing: 0.5px;
-}
-.name-user span{
-    color: #979797;
-    font-size: 0.8rem;
-}
-.reviews{
-    color: #f9d71c;
-}
-.box-top{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-.client-comment p{
-    font-size: 0.9rem;
-    color: #4b4b4b;
-}
-.testimonial-box:hover{
-    transform: translateY(-10px);
-    transition: all ease 0.3s;
-}
- 
-@media(max-width:1060px){
-    .testimonial-box{
-        width:45%;
-        padding: 10px;
-    }
-}
-@media(max-width:790px){
-    .testimonial-box{
-        width:100%;
-    }
-    .testimonial-heading h1{
-        font-size: 1.4rem;
-    }
-}
-@media(max-width:340px){
-    .box-top{
-        flex-wrap: wrap;
-        margin-bottom: 10px;
-    }
-    .reviews{
-        margin-top: 10px;
-    }
-}
-::selection{
-    color: #ffffff;
-    background-color: #252525;
+.cat-nav a:hover{
+  color:#041690!important;
 }
 
 </style>
+@extends('landing_layout')
+@section('customer_content')
 <form action="{{route('add_to_cart')}}" method="POST">
       @CSRF
 @foreach($stationeries as $stationery)
 <!-- description card -->
 <div class="py-3 mb-4 shadow-sm border-top" style="background-color: #C0C0C0;">
-  <div class="container">
-    <h6 class="mb-0">Books / {{$stationery->categoryName}} / {{$stationery->categoryType}} / {{$stationery->stationery_title}}</h6>
+  <div class="container cat-nav">
+    <h6 class="mb-0" style="text-transform: capitalize;"><a href="route('stationery')" style="color:black;text-decoration:none;">Stationeries</a> / <a href="{{ route('stationery_category',['id'=>$stationery->stationery_category_ID])}}" style="color:black; text-decoration:none">{{$stationery->categoryName}}-{{$stationery->categoryType}}</a> / {{$stationery->stationery_title}}</h6>
   </div>
 </div>
 
@@ -227,12 +54,12 @@ table {
           <input type="hidden" name="ISBN" value="{{$stationery->stationery_ISBN}}">
           <input type="hidden" name="type" value="stationery">
 
-          <label class="me-3">Publisher: {{$stationery->stationery_publisher}}</label><br>
-          <label class="me-3">Price: RM{{number_format($stationery->stationery_price, 2)}}</label><br>
-          <label class="me-3">ISBN: {{$stationery->stationery_ISBN}}</label>
-          <p class="mt-3">
+          <label class="me-3"><b>Publisher:</b> {{$stationery->stationery_publisher}}</label><br>
+          <label class="me-3"><b>Price:</b> RM{{number_format($stationery->stationery_price, 2)}}</label><br>
+          <label class="me-3"><b>ISBN:</b> {{$stationery->stationery_ISBN}}</label>
+          <b><p class="mt-3">
             Product Description
-          </p>
+          </p></b>
        
           <p>{{$stationery->stationery_description}}</p>
 
@@ -251,18 +78,18 @@ table {
   
           @if($stationery->stationery_quantity > 0)
           <div class="row mt-2">
-            <div class="col-md-2">
+            <div class="col-md-4">
               <input type="hidden" name="limit" class="limit" value="{{$stationery->stationery_quantity}}">
               <label for="Quantity">Quantity</label>
               <div class="input-group text-center mb-3">
                 <button class="input-group-text decrement-btn">-</button>
-                    <input type="text" name="quantity" value="1" class="form-control qty-input" style="margin-left:-3px;">
+                    <input type="text" name="quantity" value="1" class="form-control qty-input" style="max-width: 45px; text-align: center">
                 <button class="input-group-text increment-btn">+</button> 
               </div>
               <p class="left_item"></p>
             </div>
 
-            <div class="col-md-10">
+            <div class="col-md-8">
               <br>
               <button type="submit" class="btn btn-primary me-3 float-start">Add to Cart</button>
             </div>
@@ -296,7 +123,6 @@ table {
 
         value++;
         $('.qty-input').val(value);
-        alert(value);
 
       }
 

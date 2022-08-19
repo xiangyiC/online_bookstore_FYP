@@ -46,14 +46,6 @@
                   <button type="submit" class="btn btn-outline-primary search-button" style="border: 2px solid #1266f1;"><i class="bi bi-search"></i></button>
                 </div>
               </form>
-
-              <!--<div class="box">
-                <form name="search" action="{{route('search_product')}}" method="POST">
-                @csrf
-                  <input type="text" class="input" name="keyword">
-                </form>
-                <button type="submit"><i class="bi bi-search"></i></button>
-              </div>-->
             </li>
       
             <li class="nav-item dropdown">
@@ -61,15 +53,14 @@
                 BOOKS
               </a>
               <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="#">FICTION</a></li>
-                <li><a class="dropdown-item" href="#">NON-FICTION</a></li>
-                <li><a class="dropdown-item" href="#">CHILDREN BOOK</a></li>
-                <li><a class="dropdown-item" href="#">REVISION BOOK</a></li>
+                <li><a class="dropdown-item" href="{{ route('fiction') }}">FICTION</a></li>
+                <li><a class="dropdown-item" href="{{route('nonfiction')}}">NON-FICTION</a></li>
+                <li><a class="dropdown-item" href="{{route('children')}}">CHILDREN BOOK</a></li>
               </ul>
             </li>
             
             <li class="nav-item">
-              <a class="nav-link" href="#">STATIONERY</a>
+              <a class="nav-link" href="{{route('stationery')}}">STATIONERY</a>
             </li>
             @guest
             <li class="nav-item">
@@ -78,9 +69,9 @@
             @endguest
             <li class="nav-item cart">
               @guest
-              <a class="nav-link" href="{{route('show_my_cart')}}"><i class="bi bi-cart-fill cart" style="font-size: 1.2em; top:5px;"></i></a>
+              <a class="nav-link" href="{{route('show_my_cart')}}"><i class="bi bi-cart-fill cart-item" style="font-size: 1.2em; top: 5px;"></i></a>
               @else
-              <a class="nav-link" href="{{route('show_my_cart')}}"><i class="bi bi-cart-fill cart" style="font-size: 1.2em"></i> 
+              <a class="nav-link" href="{{route('show_my_cart')}}"><i class="bi bi-cart-fill cart-item" style="font-size: 1.2em;"></i> 
 
               <i class="bi bi-circle-fill cart-count" style="font-size: 0.7em"><span class="cart-num" style="">{{\App\Http\Controllers\CartController::cartItem()}}</span></i></a>
               @endguest
@@ -114,7 +105,6 @@
 <!-- end of top -->
 <br>
 <br>
-
 @if(Session::has('success'))
     <div class="alert alert-success" role="alert">
         {{Session::get('success')}}

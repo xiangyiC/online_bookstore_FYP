@@ -13,21 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+  //  return view('welcome');
+//});
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/admin', function () {
-    return view('admin_layout');
-});
-
-//Route::get('/admin_dashboard', function () {
-  //  return view('admin_dashboard');
-//})->name('admin_dashboard');
 
 Route::get('/admin_add_book_category', function () {
     return view('admin_add_book_category');
@@ -85,11 +77,6 @@ Route::get('/admin_order_list', function () {
     return view('admin_order_list');
 })->name('admin_order_list');
 
-//Route::get('/order_list', function () {
-  //  return view('order_list');
-//})->name('order_list');
-
-
 Route::post('/add_stationery',[App\Http\Controllers\StationeryController::class,'add_stationery'])->name('add_stationery');
 
 Route::get('/admin_stationery/{stationery_ISBN}',[App\Http\Controllers\StationeryController::class,'delete_stationery'])->name('admin_delete_stationery');
@@ -100,19 +87,9 @@ Route::get('/admin_edit_stationery/{stationery_ISBN}',[App\Http\Controllers\Stat
 
 Route::post('/admin_update_stationery',[App\Http\Controllers\StationeryController::class,'update_stationery'])->name('admin_update_stationery');
 
-//Route::get('/landing', function () {
-  //  return view('landing');
-//})->name('landing');
-
-Route::get('/landing',[App\Http\Controllers\BookController::class,'landing'])->name('landing');
+Route::get('/',[App\Http\Controllers\BookController::class,'landing'])->name('landing');
 
 Route::get('/admin_customer_list',[App\Http\Controllers\UserController::class,'view_customer'])->name('admin_customer_list');
-
-Route::get('/admin_dashboard',[App\Http\Controllers\DashboardController::class,'index'])->name('admin_dashboard');
-
-Route::get('/loginpage', function () {
-    return view('login');
-});
 
 Route::get('/products', function () {
     return view('search');
@@ -132,7 +109,7 @@ Route::post('/update_cart', [App\Http\Controllers\CartController::class, 'update
 
 Route::get('/delete_cart/{ISBN}',[App\Http\Controllers\CartController::class,'delete_cart'])->name('delete_cart');
 
-Route::post('/check_out', [App\Http\Controllers\OrderController::class, 'place_order'])->name('place_order');
+Route::post('/check_out', [App\Http\Controllers\OrderController::class, 'payment_post'])->name('place_order');
 
 Route::get('/my_order', [App\Http\Controllers\OrderController::class, 'customer_view'])->name('order_list');
 
@@ -155,3 +132,19 @@ Route::post('/search',[App\Http\Controllers\BookController::class,'search_Produc
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::middleware(['auth','isAdmin'])->group(function(){
+    Route::get('/admin_dashboard',[App\Http\Controllers\DashboardController::class,'index'])->name('admin_dashboard');
+});
+
+Route::get('/book/{name}/{id}',[App\Http\Controllers\BookController::class,'book_category'])->name('book_category');
+
+Route::get('/fiction',[App\Http\Controllers\BookController::class,'fiction'])->name('fiction');
+
+Route::get('/nonfiction',[App\Http\Controllers\BookController::class,'nonfiction'])->name('nonfiction');
+
+Route::get('/children_book',[App\Http\Controllers\BookController::class,'children_book'])->name('children');
+
+Route::get('/stationery/{id}',[App\Http\Controllers\StationeryController::class,'stationery_category'])->name('stationery_category');
+
+Route::get('/stationery',[App\Http\Controllers\StationeryController::class,'stationery'])->name('stationery');

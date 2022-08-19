@@ -66,7 +66,7 @@ body {
 	height: 95px;
 	border-radius: 50%;
 	z-index: 9;
-	background: #60c7c1;
+	background: #AFDBF5;
 	padding: 15px;
 	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -84,7 +84,7 @@ body {
 	margin-top: 80px;
 }
 .modal-login .btn, .modal-login .btn:active {
-	color: #fff;
+	color: black;
 	border-radius: 4px;
 	background: #87CEFA !important;
 	text-decoration: none;
@@ -144,7 +144,7 @@ body {
 				<div class="avatar">
                     <i class="bi bi-person-fill"></i>
 				</div>
-				<h4 class="modal-title">Login</h4>
+				<h4 class="modal-title">Sign Up</h4>
 
                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 			</div>
@@ -152,13 +152,14 @@ body {
                 <div class="container-fluid">
                     <div class="row justify-content-center">
                         <div class="col-md-10 col-sm-10">
-                            <form method="POST" action="{{ route('login') }}">
+                            <form method="POST" action="{{ route('register') }}">
                                 @CSRF
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <span class="input-group-addon"><i class="bi bi-envelope-fill email"></i></span>
-                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
-                                        @error('email')
+                                        <span class="input-group-addon"><i class="bi bi-person-fill"></i></span>
+                                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Username">
+
+                                        @error('name')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
@@ -168,8 +169,22 @@ body {
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group">
+                                        <span class="input-group-addon"><i class="bi bi-envelope-fill email"></i></span>
+                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email">
+
+                                        @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="input-group">
                                         <span class="input-group-addon"><i class="bi bi-lock-fill"></i></span>
-                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password">
+                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
+
                                         @error('password')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -177,24 +192,23 @@ body {
                                         @enderror
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btn-block btn-lg">Sign In</button>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="bi bi-unlock-fill"></i></span>
+                                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
+                                    </div>
                                 </div>
                                 
-                                @if (Route::has('password.request'))
-                                    <div class="hint-text" >
-                                    <a href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                    </div>
-                                @endif
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-block btn-lg">Register</button>
+                                </div>
+                                
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-			<div class="modal-footer">Don't have an account? <a href="{{ route('register') }}">Create one</a></div>
 		</div>
 	</div>
 </div>

@@ -10,6 +10,13 @@
     display: block;
 }
 
+@media screen and (min-width: 1200px), (max-width: 991px) and (min-width: 960px){
+    .stationery-category-add-img{
+        margin-left: -12px;
+    }
+
+}
+
 .stationery-category-add-content{
     padding-top: 50px;
     display: flex;

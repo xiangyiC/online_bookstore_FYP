@@ -1,5 +1,4 @@
-@extends('landing_layout')
-@section('customer_content')
+
 <style>
 
 .product-detail ul{
@@ -19,69 +18,6 @@
 .product-detail ul li span{
     font-weight: 400;
 }
-
-.icon{
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px transparent;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-property: box-shadow, transform;
-  transition-property: box-shadow, transform;
-  display: table-cell;
-  vertical-align: middle;
-  color: white;
-  border-radius: 35px;
-  width: 180px;
-  height: 180px;
-  text-align: center;
-  /*background: #007991;  /* fallback for old browsers */
-  /*background: -webkit-linear-gradient(to bottom, #78ffd6, #007991);  /* Chrome 10-25, Safari 5.1-6 */
-  /*background: linear-gradient(to bottom, #78ffd6, #007991); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-.icon:hover, .icon:focus, .icon:active {
-  box-shadow: 0 50px 50px -50px rgba(0, 0, 0, 50);
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-}
-
-
-
-.icontext{
-  text-align: center;
-  color: black;
-  font-size: 30px;
-  position: relative;
-  right: 30px;
-}
-
-
-
-table {
-  float:center;
-    border-spacing: 60px;
-    border-collapse: separate;
-    
-}
-
-
-.carousel-fade .carousel-item{
-  max-height:700px!important;
-}
-
-.carousel-fade .carousel-item img{
- object-fit:cover;
-}
-
-
-.checked {
-  color: orange;
-}
-
-
 
 #testimonials{
     display: flex;
@@ -198,14 +134,21 @@ table {
     background-color: #252525;
 }
 
+.cat-nav a:hover{
+  color:#041690!important;
+}
+
+
 </style>
+@extends('landing_layout')
+@section('customer_content')
 <form action="{{route('add_to_cart')}}" method="POST">
       @CSRF
 @foreach($books as $book)
 <!-- description card -->
-<div class="py-3 mb-4 shadow-sm border-top" style="background-color: #C0C0C0;">
+<div class="py-3 mb-4 shadow-sm border-top cat-nav" style="background-color: #C0C0C0;">
   <div class="container">
-    <h6 class="mb-0">Books / {{$book->categoryName}} / {{$book->categoryType}} / {{$book->book_title}}</h6>
+    <h6 class="mb-0" style="text-transform: capitalize;">Books / <a href="{{route($book->categoryName)}}" style="color:black; text-decoration:none">{{$book->categoryName}}</a> / <a href="{{ route('book_category',['id'=>$book->category_ID,'name'=>$book->categoryName])}}" style="color:black; text-decoration:none">{{$book->categoryType}}</a> / {{$book->book_title}}</h6>
   </div>
 </div>
 
@@ -220,20 +163,20 @@ table {
         <div class="col-md-8">
           <h2 class="mb-0">
             {{$book->book_title}}
-            <label style="font-size: 16px;" class="float-end badge bg-danger trending_tag">Trending</label>
+            
           </h2>
 
           <hr>
           <input type="hidden" name="ISBN" value="{{$book->book_ISBN}}">
           <input type="hidden" name="type" value="book">
 
-          <label class="me-3">Author(s): {{$book->book_author}}</label><br>
-          <label class="me-3">Publisher: {{$book->book_publisher}}</label><br>
-          <label class="me-3">Price: RM{{number_format($book->book_price, 2)}}</label><br>
-          <label class="me-3">ISBN: {{$book->book_ISBN}}</label>
-          <p class="mt-3">
+          <label class="me-3"><b>Author(s):</b> {{$book->book_author}}</label><br>
+          <label class="me-3"><b>Publisher:</b> {{$book->book_publisher}}</label><br>
+          <label class="me-3"><b>Price:</b> RM{{number_format($book->book_price, 2)}}</label><br>
+          <label class="me-3"><b>ISBN:</b> {{$book->book_ISBN}}</label>
+          <b><p class="mt-3">
             Product Description
-          </p>
+          </p></b>
        
           <p>{{$book->book_description}}</p>
 
@@ -257,17 +200,17 @@ table {
   
           @if($book->book_quantity > 0)
           <div class="row mt-2">
-            <div class="col-md-2">
+            <div class="col-md-4">
               <label for="Quantity">Quantity</label>
               <input type="hidden" name="limit" class="limit" value="{{$book->book_quantity}}">
-              <div class="input-group text-center mb-3">
+              <div class="input-group text-center mb-3 qty-button">
                 <button class="input-group-text decrement-btn">-</button>
-                    <input type="text" name="quantity" value="1" class="form-control qty-input" style="margin-left:-3px;">
+                    <input type="text" name="quantity" value="1" class="form-control qty-input" style="max-width: 45px; text-align: center">
                 <button class="input-group-text increment-btn">+</button> 
               </div>
               <p class="left_item"></p>
             </div>
-            <div class="col-md-10">
+            <div class="col-md-8">
               <br>
               <button type="submit" class="btn btn-primary me-3 float-start">Add to Cart</button>
             </div>            
@@ -304,7 +247,6 @@ table {
 
         value++;
         $('.qty-input').val(value);
-        alert(value);
 
       }
 

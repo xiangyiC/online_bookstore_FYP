@@ -12,23 +12,36 @@ use App\Models\Order;
 use App\Models\OrderItem;
 Use Session;
 use Auth;
+use Stripe;
 
 class OrderController extends Controller
 {
-    public function place_order(){
-        $r=request();
-
+    public function __construct(){
+        $this->middleware('auth');
+    }
+    
+    public function payment_post(Request $request)
+    {
+    try{
+	Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        Stripe\Charge::create ([
+                "amount" => $request->sub*100,
+                "currency" => "MYR",
+                "source" => $request->stripeToken,
+                "description" => "This payment is testing purpose of southern online",
+        ]);
+           
         $addCart=Order::Create([
-            'order_amount'=>$r->sub,
+            'order_amount'=>$request->sub,
             'user_ID'=>Auth::id(),
-            'payment_status'=>'',
+            'payment_status'=>'done',
             'order_status'=>'pending',
-            'customer_name'=>$r->name,
-            'customer_phoneNo'=>$r->phone,
-            'street'=>$r->street,
-            'city'=>$r->city,
-            'state'=>$r->state,
-            'zip_code'=>$r->zip_code,
+            'customer_name'=>$request->name,
+            'customer_phoneNo'=>$request->phone,
+            'street'=>$request->street,
+            'city'=>$request->city,
+            'state'=>$request->state,
+            'zip_code'=>$request->zip_code,
 
         ]);
 
@@ -76,9 +89,20 @@ class OrderController extends Controller
         myCart::destroy($cart);
 
         return redirect()->route('order_list');
-  
-    }
 
+        }catch(\Stripe\Exception\CardException $e) {
+            Session::flash('error',"A payment error occurred: {$e->getError()->message}");
+            return redirect()->route('to_checkout');
+           
+          } catch (\Stripe\Exception\InvalidRequestException $e) {
+            Session::flash('error',"An invalid request occurred.");
+            return redirect()->route('to_checkout');
+          } catch (Exception $e) {
+            Session::flash('error',"Transaction Failed.");
+            return redirect()->route('to_checkout');
+          }
+    }
+    
     public function admin_view(){
         $viewOrder=DB::table('orders')->orderBy('created_at', 'desc')->get();
         return view('admin_order_list')->with('orders', $viewOrder);

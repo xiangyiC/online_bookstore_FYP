@@ -23,7 +23,6 @@
                     newTotal= newTotal.toFixed(2);
                     $("#total").text("RM" + newTotal);
                     $('#sub').val(newTotal);
-                    alert(document.getElementById("sub").value);
 
                 }else{
                     $(".shipping").text("Shipping Fee (West Malaysia): ");
@@ -47,7 +46,7 @@
                     $('#state').focus();
                     return false;
                 }
-            var postcode = document.forms["place_order"]["zip_code"].value;
+                var postcode = document.forms["place_order"]["zip_code"].value;
                 var re = /^[0-9]{5}$/;
                 var valid= re.test(postcode);
                 if(valid == false){
@@ -55,6 +54,14 @@
                     $('#zipcode').focus();
                     return false;
                 }
+                var expire_year = document.forms["place_order"]["card-expiry-year"].value;
+                expire_year = parseFloat(expire_year);
+                if(expire_year < 2022 || expire_year > 2050){
+                    alert("Please enter correct expire year!");
+                    $('.card-expiry-year').focus();
+                    return false;
+                }
+
             }
         </script>
         <style>
@@ -68,7 +75,7 @@
 @extends('landing_layout')
 @section('customer_content')
 
-<form action="{{route('place_order')}}" method="POST" name="place_order" onsubmit="return validateCheckOutForm()">
+<form action="{{route('place_order')}}" method="POST" name="place_order" onsubmit="return validateCheckOutForm()" class="require-validation" data-cc-on-file="false" data-stripe-publishable-key="{{ env('STRIPE_KEY') }}" id="payment-form">
 @CSRF
 
 <div class="container mt-5">
@@ -129,31 +136,31 @@
                     </div>
 
                 </div>
-                <div class="card-body">
+                <div class="card-body payment">
                     <h5 class="card-title">Payment Information</h5>
                     <hr>
                     <div class="row">
                         <div class="col-md-6">
                             <label for="cardName">Name On Credit Card</label>
-                            <input type="text" class="form-control cardName" id="cardName">
+                            <input type="text" class="form-control card-name" id="card-name"">
                         </div>
                         <div class="col-md-6">
                             <label for="cardNumber">Credit Card Number</label>
-                            <input type="text" class="form-control cardNumber" id="cardNumber" autocomplete='off'>
+                            <input type="text" class="form-control card-number" id="card-number" autocomplete='off'>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4">
                             <label for="CVC">CVC</label>
-                            <input autocomplete='off' class='form-control CVC' placeholder='ex. 311' id="CVC" type='number'>
+                            <input autocomplete='off' class='form-control card-cvc' placeholder='ex. 311' id="card-cvc" type='text'>
                         </div>
                         <div class="col-md-4">
                             <label for="expireMonth">Expire Month</label>
-                            <input type="number" class="form-control expireMonth" id="expireMonth" placeholder='MM' onchange="if(this.value.length < 2) this.value = '0' + this.value;" min="1" max="12" step="1">
+                            <input type="text" class="form-control card-expiry-month" id="card-expiry-month" placeholder='MM' onchange="if(this.value.length < 2) this.value = '0' + this.value;">
                         </div>
                         <div class="col-md-4">
                             <label for="expireMonth">Expire Year</label>
-                            <input type="number" class="form-control expireYear" id="expireYear" placeholder='YYYY' min="2022">
+                            <input type="text" class="form-control card-expiry-year" id="card-expiry-year" placeholder='YYYY'>
                         </div>
                     </div>
 
@@ -259,4 +266,54 @@
 <br><br>
 
 </form>
+
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript">
+$(function() {
+  var $form = $(".require-validation");
+  $('form.require-validation').bind('submit', function(e) {
+    var $form = $(".require-validation"),
+    inputSelector = ['.payment input[type=email]', '.payment input[type=password]', '.payment input[type=text]', 'input[type=file]', 'textarea'].join(', '),
+    $inputs = $form.find('.required').find(inputSelector),
+    $errorMessage = $form.find('div.error'),
+    valid = true;
+    $errorMessage.addClass('hide');
+    $('.has-error').removeClass('has-error');
+    $inputs.each(function(i, el) {
+        var $input = $(el);
+        if ($input.val() === '') {
+            $input.parent().addClass('has-error');
+            $errorMessage.removeClass('hide');
+            e.preventDefault();
+        }
+    });
+    if (!$form.data('cc-on-file')) {
+      e.preventDefault();
+      Stripe.setPublishableKey($form.data('stripe-publishable-key'));
+      Stripe.createToken({
+          number: $('.card-number').val(),
+          cvc: $('.card-cvc').val(),
+          exp_month: $('.card-expiry-month').val(),
+          exp_year: $('.card-expiry-year').val()
+      }, stripeResponseHandler);
+    }
+  });
+
+  function stripeResponseHandler(status, response) {
+      if (response.error) {
+          $('.error')
+              .removeClass('hide')
+              .find('.alert')
+              .text(response.error.message);
+      } else {
+          /* token contains id, last4, and card type */
+          var token = response['id'];
+          $form.find('.payment input[type=text]').empty();
+          $form.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
+          $form.get(0).submit();
+      }
+  }
+});
+
+</script>
 @endsection

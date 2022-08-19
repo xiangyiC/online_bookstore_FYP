@@ -88,4 +88,25 @@ class StationeryController extends Controller
         return view('stationery_details')->with('stationeries',$stationeries);
  
     }
+
+    public function stationery_category($id){
+       
+        $category_type=Category::all()->where('product', 'stationery');
+        $categories=Stationery::all()->where('stationery_category_ID',$id);
+        $category=Category::where('category_ID',$id)->value('category_type');
+        Session()->put('category', $category);//assign value to session variable
+        return view('stationery_category', compact(['categories','category_type']));
+        
+    }
+
+    public function stationery(){
+        $category_name=Category::all()->where('product', 'stationery');
+        $categories=DB::table('stationeries')
+        ->leftjoin('categories','categories.category_ID','=','stationeries.stationery_category_ID')
+        ->select('stationeries.*','categories.category_name as categoryName', 'categories.category_type as categoryType')
+        ->where('categories.product', 'stationery')
+        ->get();
+         return view('stationery', compact(['categories','category_name']));
+    }
+
 }

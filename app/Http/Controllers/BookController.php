@@ -95,6 +95,7 @@ class BookController extends Controller
         }else if($book_count>12){
             $books=Book::all()->take(12);
         }
+        Session()->put('book_count', $book_count);
 
         $stationery_count = DB::table('stationeries')->count();
 
@@ -103,9 +104,9 @@ class BookController extends Controller
         }else if($book_count>12){
             $stationeries=Stationery::all()->take(12);
         }
+        Session()->put('stationery_count', $stationery_count);
+        return view('welcome', compact(['news', 'books','stationeries']));
         
-        return view('landing', compact(['news', 'books','stationeries']));
-        //return view('landing')->with('news',$new_arrival);
     }
 
     public function book_details($ISBN){
@@ -120,13 +121,53 @@ class BookController extends Controller
     public function search_Product(){
         $r=request();
         $keyword=$r->keyword;
-        
+        $category_type=Category::all()->where('product', 'book');
         $books=DB::table('books')->where('book_title','like','%'.$keyword.'%')
         ->get();
         Session()->put('keyword', $keyword);
-        return view('search')->with('books',$books);
+        return view('search', compact(['books','category_type']));
     }
 
- 
+    public function book_category($name, $id){
+       
+        $category_type=Category::all()->where('product', 'book')->where('category_name', $name);
+        $categories=Book::all()->where('category_ID',$id);
+        $category=Category::where('category_ID',$id)->value('category_type');
+        $category_name=Category::where('category_ID',$id)->value('category_name');
+        Session()->put('category', $category);
+        Session()->put('category_name', $category_name);//assign value to session variable
+         return view('book_category', compact(['categories','category_type']));
+        
+    }
+
+    public function fiction(){
+        $category_type=Category::all()->where('product', 'book')->where('category_name', 'fiction');
+        $categories=DB::table('books')
+        ->leftjoin('categories','categories.category_ID','=','books.category_ID')
+        ->select('books.*','categories.category_name as categoryName', 'categories.category_type as categoryType')
+        ->where('categories.category_name', 'fiction')
+        ->get();
+         return view('fiction', compact(['categories','category_type']));
+    }
+
+    public function nonfiction(){
+        $category_type=Category::all()->where('product', 'book')->where('category_name', 'nonfiction');
+        $categories=DB::table('books')
+        ->leftjoin('categories','categories.category_ID','=','books.category_ID')
+        ->select('books.*','categories.category_name as categoryName', 'categories.category_type as categoryType')
+        ->where('categories.category_name', 'nonfiction')
+        ->get();
+         return view('nonfiction', compact(['categories','category_type']));
+    }
+
+    public function children_book(){
+        $category_type=Category::all()->where('product', 'book')->where('category_name', 'children');
+        $categories=DB::table('books')
+        ->leftjoin('categories','categories.category_ID','=','books.category_ID')
+        ->select('books.*','categories.category_name as categoryName', 'categories.category_type as categoryType')
+        ->where('categories.category_name', 'children')
+        ->get();
+         return view('children_book', compact(['categories','category_type']));
+    }
 
 }

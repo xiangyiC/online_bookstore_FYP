@@ -6,8 +6,13 @@
 
 .book-category-add-img{
     object-fit: cover;
-    position: relative;
-    margin-left: -11px;
+}
+
+@media screen and (min-width: 1105px), (max-width: 991px) and (min-width: 851px){
+    .book-category-add-img{
+        margin-left: -25px;
+    }
+
 }
 
 .book-category-add-content{

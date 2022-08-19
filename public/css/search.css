@@ -53,9 +53,88 @@
     text-align: center;
     margin: 30px auto;
   }
+
+  .price{
+    color: rgb(9, 82, 192);
+  }
   
-  @media (min-width: 150px) {
+  
+  @media (min-width: 200px) {
     .view {
       min-width: 135px;
     }
+  }
+
+  .bookcategory img {
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+    object-fit:cover;
+  }
+  
+  @media (min-width: 1200px) {
+      .bookcategory img {
+          max-height: 390px;
+          max-width: 260px;
+          vertical-align: middle;
+          object-fit:cover;
+      }
+  }
+  
+  
+  
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .cards_item {
+    display: flex;
+    padding: 1rem;
+  }
+  
+  @media (min-width: 40rem) {
+    .cards_item {
+      width: 50%;
+    }
+  }
+  
+  @media (min-width: 56rem) {
+    .cards_item {
+      width: 25%;
+    }
+  }
+  
+  .card_ {
+    background-color: white;
+    border-radius: 0.25rem;
+    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  .card_content {
+    padding: 1rem;
+    
+  }
+  
+  .card_title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    margin: 0px;
+  }
+  
+  .category_menu{
+      text-decoration: none;
+      color:black;
+  }
+  
+  .author{
+    height: 40px;
   }

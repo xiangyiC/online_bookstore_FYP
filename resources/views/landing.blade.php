@@ -61,7 +61,7 @@
                         <h4 class="card-title">{{$new->book_title}}</h4>
                       </div>
                       <div class="author">
-                        <i style="font-size:0.8em">{{$new->book_author}}</i>
+                        <i style="font-size:0.8em">{{$new->book_publisher}}</i>
                       </div>
                       
                       <p class="card-text price">RM{{number_format($new->book_price, 2)}}</p>
@@ -122,7 +122,7 @@
                         <h4 class="card-title">{{$new->book_title}}</h4>
                       </div>
                       <div class="author">
-                        <i style="font-size:0.8em">{{$new->book_author}}</i>
+                        <i style="font-size:0.8em">{{$new->book_publisher}}</i>
                       </div>
                       <p class="card-text price">RM{{number_format($new->book_price, 2)}}</p>
                       
@@ -186,7 +186,7 @@
                         <h4 class="card-title">{{$new->book_title}}</h4>
                       </div>
                       <div class="author">
-                        <i style="font-size:0.8em">{{$new->book_author}}</i>
+                        <i style="font-size:0.8em">{{$new->book_publisher}}</i>
                       </div>
                       <p class="card-text price">RM{{number_format($new->book_price, 2)}}</p>
                       
@@ -248,7 +248,7 @@
                         <h4 class="card-title">{{$book->book_title}}</h4>
                       </div>
                       <div class="author">
-                        <i style="font-size:0.8em">{{$book->book_author}}</i>
+                        <i style="font-size:0.8em">{{$book->book_publisher}}</i>
                       </div>
                       <p class="card-text price">RM{{number_format($book->book_price, 2)}}</p>
                       
@@ -309,7 +309,7 @@
                         <h4 class="card-title">{{$book->book_title}}</h4>
                       </div>
                       <div class="author">
-                        <i style="font-size:0.8em">{{$book->book_author}}</i>
+                        <i style="font-size:0.8em">{{$book->book_publisher}}</i>
                       </div>
                       <p class="card-text price">RM{{number_format($book->book_price, 2)}}</p>
                       
@@ -373,7 +373,7 @@
                         <h4 class="card-title">{{$book->book_title}}</h4>
                       </div>
                       <div class="author">
-                        <i style="font-size:0.8em">{{$book->book_author}}</i>
+                        <i style="font-size:0.8em">{{$book->book_publisher}}</i>
                       </div>
                       <p class="card-text price">RM{{number_format($book->book_price, 2)}}</p>
                       
@@ -438,6 +438,9 @@
                     <div class="title" style="height: 60px;">
                         <h4 class="card-title">{{$stationery->stationery_title}}</h4>
                       </div>
+                      <div class="author">
+                        <i style="font-size:0.8em">{{$book->stationery_publisher}}</i>
+                      </div>
                       <p class="card-text price">RM{{number_format($stationery->stationery_price, 2)}}</p>
                       
                       <div class="cart-button mx-auto">
@@ -495,6 +498,9 @@
                     <div class="card-body">
                     <div class="title" style="height: 60px;">
                         <h4 class="card-title">{{$stationery->stationery_title}}</h4>
+                      </div>
+                      <div class="author">
+                        <i style="font-size:0.8em">{{$book->stationery_publisher}}</i>
                       </div>
                       <p class="card-text price">RM{{number_format($stationery->stationery_price, 2)}}</p>
                       
@@ -556,6 +562,9 @@
                     <div class="card-body">
                     <div class="title" style="height: 60px;">
                         <h4 class="card-title">{{$stationery->stationery_title}}</h4>
+                      </div>
+                      <div class="author">
+                        <i style="font-size:0.8em">{{$book->stationery_publisher}}</i>
                       </div>
                       <p class="card-text price">RM{{number_format($stationery->stationery_price, 2)}}</p>
                       

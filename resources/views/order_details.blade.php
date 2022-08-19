@@ -15,7 +15,7 @@
                     @elseif($order->order_status == 'completed')
                     <p style="float: right"><i class="bi bi-check2-circle"></i> Completed</p>
                     @endif
-                    @endforeach
+                    
                     <h5 class="card-title">Order Item</h5>
                     <hr>
                     <table class="table" style="font-size: 0.9rem;">
@@ -68,14 +68,28 @@
                     <div style="text-align: right; color: gray;">
                         <p class="card-text">Total {{$count}} item(s)<p>
                     </div>
+                   
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
-                            <h4 class="card-title">Grand Total :</h4>
+                            <p class="card-text">Product Price: </p>
+                            @if($order->state == "Sabah" || $order->state == "Sarawak")
+                            <p class="card-text">Shipping Fee (East Malaysia): </p>
+                            @else
+                            <p class="card-text">Shipping Fee (West Malaysia): </p>
+                            @endif
+                            <h4 class="card-title mt-2">Grand Total :</h4>
                         </div>
                         <div class="col-md-6 col-sm-6" style="text-align: right;">
-                            <h4 class="card-title">RM{{number_format($total, 2)}}</h4>
+                            <p>RM{{$total}}</p>
+                            @if($order->state == "Sabah" || $order->state == "Sarawak")
+                            <p class="card-text">RM10.00</p>
+                            @else
+                            <p class="card-text">RM7.00</p>
+                            @endif
+                            <h4 class="card-title mt-2">RM{{number_format($order->order_amount, 2)}}</h4>
                         </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
             <br>
