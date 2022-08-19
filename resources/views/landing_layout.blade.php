@@ -140,11 +140,11 @@
                   </div>
                   <div class="col-lg-4 col-sm-12 col-md-4 item">
                       <h3>About Us</h3>
-                      <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
+                      <p style="text-align: justify">As readers, it was our dream to start a bookstore that understood craftsmanship and valued books highly enough to dedicate a large space to the genre, create a setting that was as beautiful, clever, and smooth as the books it would house. We hope that everyone can find his / her destiny book and stationery in Destiny Bookstore.</p>
                   </div>
                 </div>
 
-              <p class="copyright">Company Name © 2022</p>
+              <p class="copyright">Destiny Bookstore © 2022</p>
 
             </div>
   </footer>

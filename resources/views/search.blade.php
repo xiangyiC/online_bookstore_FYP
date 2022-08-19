@@ -11,9 +11,8 @@
     <div class="card">
         <div class="card-body">
             <div class="row">
-            
+            @if(session()->get('search_count')>0)
                 <div class="col-md-12">
-                    
                         <ul class="cards">
                             @foreach($books as $book)      
                             <li class="cards_item">
@@ -41,6 +40,9 @@
                     </ul>
         
                 </div>
+            @else
+            <h2 class="card_title">Sorry, we could not find this book in our bookstore</h2>
+            @endif
             </div>
             
         </div>  

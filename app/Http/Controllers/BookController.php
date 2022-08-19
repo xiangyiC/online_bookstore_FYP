@@ -121,11 +121,12 @@ class BookController extends Controller
     public function search_Product(){
         $r=request();
         $keyword=$r->keyword;
-        $category_type=Category::all()->where('product', 'book');
         $books=DB::table('books')->where('book_title','like','%'.$keyword.'%')
         ->get();
+        $search_count = DB::table('books')->where('book_title','like','%'.$keyword.'%')->count();
         Session()->put('keyword', $keyword);
-        return view('search', compact(['books','category_type']));
+        Session()->put('search_count', $search_count);
+        return view('search', compact(['books']));
     }
 
     public function book_category($name, $id){
