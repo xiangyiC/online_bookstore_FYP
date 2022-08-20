@@ -37,9 +37,6 @@ class StationeryController extends Controller
             // user already existed and was pulled from database.
         }
 
-        //$categories=Category::all()->where('product','stationery');
-        //$stationeries=Stationery::all();
-        //return view('admin_add_stationery',compact('categories'));
         return redirect()->route('admin_stationery_list');
     }
 
@@ -47,7 +44,7 @@ class StationeryController extends Controller
         $stationery_list=DB::table('stationeries')
         ->leftjoin('categories','categories.category_ID','=','stationeries.stationery_category_ID')
         ->select('stationeries.*','categories.category_name as categoryName', 'categories.category_type as categoryType')
-        ->get();
+        ->paginate(5);
         return view('admin_stationery_list')->with('stationeries',$stationery_list);
     }
 
@@ -75,7 +72,7 @@ class StationeryController extends Controller
         
         $stationery=DB::table('stationeries')->where('stationery_ISBN', $r->stationeryISBN)
         ->update(['stationery_title' => $r->stationeryTitle, 'stationery_price' =>$r->stationeryPrice,'stationery_quantity' =>$r->stationeryQuantity,'stationery_publisher' =>$r->stationeryPublisher,'stationery_Description' =>$r->stationeryDescription,'stationery_category_ID' =>$r->stationeryCategoryID]); 
-        
+        Session::flash('success',"Stationery was updated successfully!");
         return redirect()->route('admin_stationery_list');
     }
 

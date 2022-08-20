@@ -4,7 +4,14 @@
 @extends('admin_layout')
 @section('content')
 <script>
- 
+     $(function() {
+       $("select").each(function (index, element) {
+                const val = $(this).data('value');
+                if(val !== '') {
+                    $(this).val(val);
+                }
+        });
+    })
 </script>
 
 <div class="container-fluid book-category-add">
@@ -17,15 +24,19 @@
                 @CSRF
                 <h4 class="book-category-add-title">Edit Book Category</h4>
                 @foreach($categories as $category)
-                <div class="book-category-add-form-row">
-                    <label for="book_category" class="book-category-add-content-title">Book Category</label>
+                <div class="book-add-form-row selectbox mb-2">
+                    <label for="book_category" class="book-category-add-content-title">Book Category &nbsp;</label>
                     <input type="hidden" name="category_ID" id="category_ID" value="{{$category->category_ID}}">
-                    <input type="text" class="book-category-add-content-inputbox" id="book_category" name="book_category" value="{{$category->category_name}}">
+                    <select name="book_category" id="book_category" class="" data-value="{{ $category ? $category->category_name : old('book_category') }}" required >
+                        <option value="fiction">Fiction</option>
+                        <option value="nonfiction">Non-Fiction</option>
+                        <option value="children">Children</option>
+                    </select>
                 </div>
                 
                 <div class="book-category-add-form-row">
                     <label for="book_category_type" class="book-category-add-content-title">Book Category Type</label>
-                    <input type="text" class="book-category-add-content-inputbox" id="book_category_type" name="book_category_type" value="{{$category->category_type}}">
+                    <input type="text" class="book-category-add-content-inputbox" id="book_category_type" name="book_category_type" value="{{$category->category_type}}" required>
                 </div>
                 @endforeach
                 <div class="book-category-add-button">

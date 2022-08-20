@@ -77,4 +77,11 @@
     </div>
 </div>
 
+<div class="container-fluid mx-5 pagination">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            {{$stationeries->links('pagination::bootstrap-4')}}
+        </div>
+    </div>
+</div>
 @endsection

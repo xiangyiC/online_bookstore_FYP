@@ -87,6 +87,12 @@
     min-height:300px;
 }
 
+.bookcategory .card_image img{
+  width: 260px;
+  height:390px;
+  object-fit: fill;
+}
+
 </style>
 @extends('landing_layout')
 @section('customer_content')
@@ -99,7 +105,7 @@
                     <h3 class="mt-3">Stationery</h3>
                     @foreach($category_name as $name)
                     <div class="col-md-12">
-                        <a href="{{ route('stationery_category',['id'=>$name->category_ID])}}" class="category_menu">{{$name->category_name}}-{{$name->category_type}}</a>
+                        <a href="{{ route('stationery_category',['id'=>$name->category_ID])}}" class="category_menu"><p style="text-transform: capitalize;">{{$name->category_name}} - {{$name->category_type}}</p></a>
                     </div>
                     @endforeach
                 </div>

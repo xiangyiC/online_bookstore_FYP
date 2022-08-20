@@ -20,23 +20,23 @@
 
                 <div class="stationery-add-form-row">
                     <label for="stationeryTitle" class="stationery-add-content-title">Name</label>
-                    <input type="text" class="stationery-add-content-inputbox" id="stationeryTitle" name="stationeryTitle" value="{{$stationery->stationery_title}}">
+                    <input type="text" class="stationery-add-content-inputbox" id="stationeryTitle" name="stationeryTitle" value="{{$stationery->stationery_title}}" required>
                 </div>
                 
 
                 <div class="stationery-add-form-row">
                     <label for="stationeryPrice" class="stationery-add-content-title">Price</label>
-                    <input type="number" class="stationery-add-content-inputbox" id="stationeryPrice" name="stationeryPrice" value="{{$stationery->stationery_price}}" min=0 step="any">
+                    <input type="number" class="stationery-add-content-inputbox" id="stationeryPrice" name="stationeryPrice" value="{{$stationery->stationery_price}}" min=0 step="any" required>
                 </div>
 
                 <div class="stationery-add-form-row">
                     <label for="stationeryQuantity" class="stationery-add-content-title">Quantity</label>
-                    <input type="number" class="stationery-add-content-inputbox" id="stationeryQuantity" name="stationeryQuantity" min=0 value="{{$stationery->stationery_quantity}}">
+                    <input type="number" class="stationery-add-content-inputbox" id="stationeryQuantity" name="stationeryQuantity" min=0 value="{{$stationery->stationery_quantity}}" required>
                 </div>
 
                 <div class="stationery-add-form-row">
                     <label for="stationeryPublisher" class="stationery-add-content-title">Publisher</label>
-                    <input type="text" class="stationery-add-content-inputbox" id="stationeryPublisher" name="stationeryPublisher" value="{{$stationery->stationery_publisher}}">
+                    <input type="text" class="stationery-add-content-inputbox" id="stationeryPublisher" name="stationeryPublisher" value="{{$stationery->stationery_publisher}}" required>
                 </div>
 
                 <div class="stationery-add-form-row selectbox">
@@ -57,7 +57,7 @@
 
                 <div class="stationery-add-form-row-textarea">
                     <label for="stationeryDescription" class="stationery-add-content-title">Description</label><br>
-                    <textarea id="stationeryDescription" name="stationeryDescription" rows="4">{{$stationery->stationery_description}}</textarea>
+                    <textarea id="stationeryDescription" name="stationeryDescription" rows="4" required>{{$stationery->stationery_description}}</textarea>
                 </div>
                 @endforeach
                 <div class="stationery-add-button">

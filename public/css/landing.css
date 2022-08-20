@@ -178,7 +178,7 @@ object-fit: cover!important;
 }
 
 .title{
-  height: 50px;
+  height: 40px;
   font-weight: 700;
 }
 
@@ -198,6 +198,11 @@ object-fit: cover!important;
 
 .price{
   color: rgb(9, 82, 192);
+}
+
+.new-arrival-lg img, .new-arrival-md img{
+  min-height: 262px; 
+  object-fit: fill;
 }
 
 

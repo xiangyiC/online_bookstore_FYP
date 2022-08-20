@@ -148,11 +148,11 @@
         
          <!--Controls-->
          <a class="carousel-control-prev" href="#carouselExampleIndicators3" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true" style=" position: absolute;right:90px;"></span>
+            <span class="carousel-control-prev-icon" aria-hidden="true" style=" position: absolute;right:90px; filter: invert(100%);"></span>
             <span class="sr-only">Previous</span>
           </a>
           <a class="carousel-control-next" href="#carouselExampleIndicators3" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true" style=" position: absolute;left:90px;"></span>
+            <span class="carousel-control-next-icon" aria-hidden="true" style=" position: absolute;left:90px; filter: invert(100%);"></span>
             <span class="sr-only">Next</span>
           </a>
           <!--/.Controls-->
@@ -339,11 +339,11 @@
         
          <!--Controls-->
          <a class="carousel-control-prev" href="#carouselExampleIndicators6" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true" style=" position: absolute;right:90px;"></span>
+            <span class="carousel-control-prev-icon" aria-hidden="true" style=" position: absolute;right:90px; filter: invert(100%);"></span>
             <span class="sr-only">Previous</span>
           </a>
           <a class="carousel-control-next" href="#carouselExampleIndicators6" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true" style=" position: absolute;left:90px;"></span>
+            <span class="carousel-control-next-icon" aria-hidden="true" style=" position: absolute;left:90px; filter: invert(100%);"></span>
             <span class="sr-only">Next</span>
           </a>
           <!--/.Controls-->
@@ -534,11 +534,11 @@
         
          <!--Controls-->
          <a class="carousel-control-prev" href="#carouselExampleIndicators9" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true" style=" position: absolute;right:90px;"></span>
+            <span class="carousel-control-prev-icon" aria-hidden="true" style=" position: absolute;right:90px; filter: invert(100%);"></span>
             <span class="sr-only">Previous</span>
           </a>
           <a class="carousel-control-next" href="#carouselExampleIndicators9" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true" style=" position: absolute;left:90px;"></span>
+            <span class="carousel-control-next-icon" aria-hidden="true" style=" position: absolute;left:90px; filter: invert(100%);"></span>
             <span class="sr-only">Next</span>
           </a>
           <!--/.Controls-->
@@ -652,4 +652,13 @@
 
 <!-- end landing-content -->
 @endsection
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    var titles = document.querySelectorAll(".new-arrival-lg .title, .new-arrival-md .title");
+    titles.forEach(title => {
+      title.style.overflow="hidden";
+  });
+ 
+  });
+</script>
 

@@ -52,7 +52,7 @@ class StationeryCategoryController extends Controller
         $r=request();
         $book_category=DB::table('categories')->where('category_ID', $r->category_ID)
         ->update(['category_name' => $r->stationery_category, 'category_type' =>$r->stationery_category_type]); 
-
+        Session::flash('success',"Stationery category was updated successfully!");
         return redirect()->route('admin_stationery_category_list');
     }
 

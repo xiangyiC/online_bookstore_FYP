@@ -78,7 +78,7 @@ class BookController extends Controller
         
         $book_category=DB::table('books')->where('book_ISBN', $r->bookISBN)
         ->update(['book_title' => $r->bookTitle, 'book_price' =>$r->bookPrice,'book_quantity' =>$r->bookQuantity,'book_publisher' =>$r->bookPublisher,'book_author' =>$r->bookAuthor,'book_pages' =>$r->bookPages,'book_language' =>$r->bookLanguage,'book_format' =>$r->bookFormat,'book_Description' =>$r->bookDescription,'category_ID' =>$r->categoryID]); 
-        
+        Session::flash('success',"Book was updated successfully!");
         return redirect()->route('admin_book_list');
     }
 

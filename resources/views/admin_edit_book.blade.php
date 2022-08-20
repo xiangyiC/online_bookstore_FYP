@@ -30,32 +30,32 @@
 
                 <div class="book-add-form-row">
                     <label for="bookTitle" class="book-add-content-title">Book Title</label>
-                    <input type="text" class="book-add-content-inputbox" id="bookTitle" name="bookTitle" value="{{$book->book_title}}">
+                    <input type="text" class="book-add-content-inputbox" id="bookTitle" name="bookTitle" value="{{$book->book_title}}" required>
                 </div>
 
                 <div class="book-add-form-row">
                     <label for="bookPrice" class="book-add-content-title">Price</label>
-                    <input type="number" class="book-add-content-inputbox" id="bookPrice" name="bookPrice" min=0 value="{{$book->book_price}}" step="any">
+                    <input type="number" class="book-add-content-inputbox" id="bookPrice" name="bookPrice" min=0 value="{{$book->book_price}}" step="any" required>
                 </div>
 
                 <div class="book-add-form-row">
                     <label for="bookQuantity" class="book-add-content-title">Quantity</label>
-                    <input type="number" class="book-add-content-inputbox" id="bookQuantity" name="bookQuantity" min=0 value="{{$book->book_quantity}}">
+                    <input type="number" class="book-add-content-inputbox" id="bookQuantity" name="bookQuantity" min=0 value="{{$book->book_quantity}}" required>
                 </div>
 
                 <div class="book-add-form-row">
                     <label for="bookAuthor" class="book-add-content-title">Author</label>
-                    <input type="text" class="book-add-content-inputbox" id="bookAuthor" name="bookAuthor" value="{{$book->book_author}}">
+                    <input type="text" class="book-add-content-inputbox" id="bookAuthor" name="bookAuthor" value="{{$book->book_author}}" required>
                 </div>
 
                 <div class="book-add-form-row">
                     <label for="bookPublisher" class="book-add-content-title">Publisher</label>
-                    <input type="text" class="book-add-content-inputbox" id="bookPublisher" name="bookPublisher" value="{{$book->book_publisher}}">
+                    <input type="text" class="book-add-content-inputbox" id="bookPublisher" name="bookPublisher" value="{{$book->book_publisher}}" required>
                 </div>
 
                 <div class="book-add-form-row">
                     <label for="bookPages" class="book-add-content-title">Pages</label>
-                    <input type="number" class="book-add-content-inputbox" id="bookPages" name="bookPages" min=1 value="{{$book->book_pages}}">
+                    <input type="number" class="book-add-content-inputbox" id="bookPages" name="bookPages" min=1 value="{{$book->book_pages}}" required>
                 </div>
 
                 <div class="book-add-form-row selectbox">
@@ -93,7 +93,7 @@
 
                 <div class="book-add-form-row-textarea">
                     <label for="bookDescription" class="book-add-content-title">Description</label>
-                    <textarea id="bookDescription" name="bookDescription" rows="4">{{$book->book_description}}</textarea>
+                    <textarea id="bookDescription" name="bookDescription" rows="4" required>{{$book->book_description}}</textarea>
                 </div>
                 @endforeach
                 <div class="book-add-button">

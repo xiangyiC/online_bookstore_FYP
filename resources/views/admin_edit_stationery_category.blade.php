@@ -4,7 +4,14 @@
 @extends('admin_layout')
 @section('content')
 <script>
-    
+     $(function() {
+       $("select").each(function (index, element) {
+                const val = $(this).data('value');
+                if(val !== '') {
+                    $(this).val(val);
+                }
+        });
+    })
 </script>
 
 <div class="container-fluid stationery-category-add">
@@ -17,10 +24,15 @@
                 @CSRF
                 <h4 class="stationery-category-add-title">New Stationery Category</h4>
                 @foreach($categories as $category)
-                <div class="stationery-category-add-form-row">
-                    <label for="stationery_category" class="stationery-category-add-content-title">Book Category</label>
+                
+                <div class="stationery-category-add-form-row selectbox">
+                    <label for="stationery_category" class="stationery-category-add-content-title">Stationery Category &nbsp;</label>
                     <input type="hidden" name="category_ID" id="category_ID" value="{{$category->category_ID}}">
-                    <input type="text" class="stationery-category-add-content-inputbox" id="stationery_category" name="stationery_category" value="{{$category->category_name}}">
+                    <select name="stationery_category" id="stationery_category" class="" data-value="{{ $category ? $category->category_name : old('stationery_category') }}" required >
+                        <option value="art_and_craft">Art & Craft</option>
+                        <option value="office_stationery">Office Stationery</option>
+                        <option value="printer_ink">Printer Ink</option>
+                    </select>
                 </div>
                 
                 <div class="stationery-category-add-form-row">

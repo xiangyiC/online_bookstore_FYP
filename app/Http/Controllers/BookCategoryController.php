@@ -52,7 +52,7 @@ class BookCategoryController extends Controller
         $r=request();
         $book_category=DB::table('categories')->where('category_ID', $r->category_ID)
         ->update(['category_name' => $r->book_category, 'category_type' =>$r->book_category_type]); 
-        
+        Session::flash('success',"Book category was updated successfully!");
 
         return redirect()->route('admin_book_category_list');
     }

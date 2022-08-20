@@ -98,7 +98,7 @@
                     <a href="{{route('stationery')}}" class="category_menu"><h3 class="mt-3">Stationery</h3></a>
                     @foreach($category_type as $type)
                     <div class="col-md-12">
-                        <a href="{{ route('stationery_category',['id'=>$type->category_ID])}}" class="category_menu">{{$type->category_name}}-{{$type->category_type}}</a>
+                        <a href="{{ route('stationery_category',['id'=>$type->category_ID])}}" class="category_menu"><p style="text-transform: capitalize;">{{$type->category_name}} - {{$type->category_type}}</p></a>
                     </div>
                     @endforeach
                 </div>
@@ -106,7 +106,7 @@
                 $item=0;
                 @endphp
                 <div class="col-md-9">
-                    <h3 class="mt-3 mx-3">{{session()->get('category') }}</h3>
+                    <h3 class="mt-3 mx-3" style="text-transform: capitalize;">{{session()->get('category') }}</h3>
                         <ul class="cards">
                             @foreach($categories as $category)      
                             <li class="cards_item">

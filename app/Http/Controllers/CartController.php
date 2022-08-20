@@ -55,23 +55,7 @@ class CartController extends Controller
         $stationery_count = DB::table('my_carts')->where('type','=','stationery')->where('my_carts.user_ID', '=', Auth::id())->count();
         Session()->put('book_count', $book_count);//assign value to session variable
         Session()->put('stationery_count', $stationery_count);
-            //more than one raw
-            /*$books=DB::table('my_carts')
-            ->leftjoin('books', 'books.book_ISBN','=','my_carts.ISBN')
-            ->select('my_carts.quantity as cartQTY', 'my_carts.id as cid', 'books.*')
-            ->where('my_carts.order_ID','=','')//if '' means haven't make payment
-            ->where('my_carts.user_ID','=',Auth::id())//item match with current login user
-            ->where('type','=','book')
-            ->get();
-
-            $stationeries=DB::table('my_carts')
-            ->leftjoin('stationeries', 'stationeries.stationery_ISBN','=','my_carts.ISBN')
-            ->select('my_carts.quantity as cartQTY', 'my_carts.id as cid','stationeries.*')
-            ->where('my_carts.order_ID','=','')//if '' means haven't make payment
-            ->where('my_carts.user_ID','=',Auth::id())//item match with current login user
-            ->where('type','=','stationery')
-            ->get();*/
-
+            
             $my_cart=myCart::all()->where('user_ID',Auth::id())->where('order_ID','');
             $this->cartItem();
             

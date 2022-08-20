@@ -138,3 +138,9 @@
   .author{
     height: 40px;
   }
+
+  .bookcategory .card_image img{
+    width: 260px;
+    height:390px;
+    object-fit: fill;
+  }

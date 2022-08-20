@@ -88,6 +88,12 @@
     min-height:300px;
 }
 
+.bookcategory .card_image img{
+  width: 260px;
+  height:390px;
+  object-fit: fill;
+}
+
 </style>
 @extends('landing_layout')
 @section('customer_content')
@@ -97,11 +103,8 @@
         <div class="card-body">
             <div class="row">
             <div class="col-md-3">
-                    @php
-                    $category_name = preg_replace("/[^a-zA-Z]+/", "", session()->get('category_name'));
-                    $category_name = strtolower($category_name);
-                    @endphp
-                    <a href="{{route($category_name)}}" class="category_menu"><h3 class="mt-3" style="text-transform: capitalize;">{{session()->get('category_name') }}</h3></a>
+                    
+                    <a href="{{route(session()->get('category_name'))}}" class="category_menu"><h3 class="mt-3" style="text-transform: capitalize;">{{session()->get('category_name') }}</h3></a>
                     @foreach($category_type as $type)
                     <div class="col-md-12">
                         <a href="{{ route('book_category',['id'=>$type->category_ID,'name'=>$type->category_name])}}" class="category_menu"><p style="text-transform: capitalize;">{{$type->category_type}}</p></a>
