@@ -13,4 +13,11 @@ class UserController extends Controller
         $view_customer=User::all()->where('role_as','0');
         return view('admin_customer_list')->with('customers',$view_customer);
     }
+
+    public function delete_customer($id){
+        $customer = DB::table('users')->where('id', $id);
+        $customer->delete();
+        Session::flash('success',"User was deleted successfully!");
+        return redirect()->route('admin_customer_list');
+    }
 }

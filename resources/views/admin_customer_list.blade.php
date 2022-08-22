@@ -33,7 +33,7 @@
                 <td>{{$customer->name}}</td>
                 <td>{{$customer->email}}</td>
                 <td>{{$customer->created_at}}</td>
-                <td><button type="button" class="btn btn-info delete">Delete</button></td>
+                <td><a href="{{ route('admin_delete_customer',['id'=>$customer->id])}}" onClick="return confirm('Are you confirm to delete?')"><button class="btn btn-info delete">Delete</button></td>
                 <?php
                     $i++;
                 ?>

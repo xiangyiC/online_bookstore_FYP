@@ -80,7 +80,7 @@
                             <h4 class="card-title mt-2">Grand Total :</h4>
                         </div>
                         <div class="col-md-6 col-sm-6" style="text-align: right;">
-                            <p>RM{{$total}}</p>
+                            <p>RM{{number_format($total, 2)}}</p>
                             @if($order->state == "Sabah" || $order->state == "Sarawak")
                             <p class="card-text">RM10.00</p>
                             @else

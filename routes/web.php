@@ -91,6 +91,8 @@ Route::get('/',[App\Http\Controllers\BookController::class,'landing'])->name('la
 
 Route::get('/admin_customer_list',[App\Http\Controllers\UserController::class,'view_customer'])->name('admin_customer_list');
 
+Route::get('/admin_delete_customer/{id}',[App\Http\Controllers\UserController::class,'delete_customer'])->name('admin_delete_customer');
+
 Route::get('/products', function () {
     return view('search');
 });
