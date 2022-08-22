@@ -86,6 +86,12 @@
 .bookcategory{
     min-height:300px;
 }
+
+.bookcategory .card_image img{
+  width: 260px;
+  height:390px;
+  object-fit: fill;
+}
 </style>
 @extends('landing_layout')
 @section('customer_content')

@@ -201,7 +201,7 @@ object-fit: cover!important;
 }
 
 .new-arrival-lg img, .new-arrival-md img{
-  min-height: 262px; 
+  height: 262px; 
   object-fit: fill;
 }
 
